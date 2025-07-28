@@ -1,1 +1,1 @@
-# My configs files
+# My config files
