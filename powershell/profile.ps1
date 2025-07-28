@@ -54,7 +54,7 @@ if (Command-Exist zoxide) { Set-Alias -Name cd -Value z -Option AllScope }
 
 function set_proxy() {
     $proxy_url = "127.0.0.1:7897"
-    $http_proxy = "http://127.0.0.1:7897"
+    $http_proxy = "http://$proxy_url"
 
     $env:HTTP_PROXY = $http_proxy
     $env:HTTPS_PROXY = $http_proxy
