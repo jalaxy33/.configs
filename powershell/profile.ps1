@@ -1,4 +1,4 @@
-# Profile.ps1 or Microsoft.PowerShell_profile.ps1
+# profile.ps1 or Microsoft.PowerShell_profile.ps1
 
 function Command-Exist {
     param(
