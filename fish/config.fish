@@ -28,7 +28,7 @@ if status is-interactive
     # uv
     uv generate-shell-completion fish | source
     uvx --generate-shell-completion fish | source
-    fish_add_path "/home/dai/.local/bin"
+    fish_add_path "$HOME/.local/bin"
 
 end
 
