@@ -5,6 +5,7 @@ if status is-interactive
     starship init fish | source
     zoxide init fish | source
     fzf --fish | source
+    jj util completion fish | source
 
     # aliasing
     alias vi="vim"

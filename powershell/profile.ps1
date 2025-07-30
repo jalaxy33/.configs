@@ -34,13 +34,14 @@ if (Command-Exist yazi){
         Remove-Item -Path $tmp
     }
 }
+if (Command-Exist jj) { Invoke-Expression (& { (jj util completion power-shell | Out-String) }) }
 
 
 ## --- alias --- 
 
 # prettier ls
 if (Command-Exist eza) {
-    function eza-ls { eza --icons --git @args }
+    function eza-ls { eza -a --icons --git @args }
     Set-Alias -Name ls -Value eza-ls -Option AllScope
 }
 
