@@ -10,12 +10,20 @@ function Command-Exist {
 
 ## --- init apps ---
 
-if (Command-Exist starship) { Invoke-Expression (&starship init powershell) }
 if (Command-Exist zoxide) { Invoke-Expression (& { (zoxide init powershell | Out-String) }) }
-if (Command-Exist yazi){
-    $git_dir = Split-Path -Parent (Split-Path -Parent (Get-Command git).Source)
-    $env:YAZI_FILE_ONE = "$git_dir\apps\git\current\usr\bin\file.exe"
+# if (Command-Exist uv) {
+#     (& uv --generate-shell-completion powershell) | Out-String | Invoke-Expression
+#     (& uvx --generate-shell-completion powershell) | Out-String | Invoke-Expression
+# }
+
+function init_starship {
+    Invoke-Expression (&starship init powershell)
 }
+
+function init_scoop {
+    Invoke-Expression (&scoop-search --hook)
+}
+
 
 
 ## --- alias --- 
@@ -32,17 +40,19 @@ function ll { ls -l @args }
 if (Command-Exist zoxide) { Set-Alias -Name cd -Value z -Option AllScope }
 
 # yazi
-if (Command-Exist yazi) {
-    function y {
-        $tmp = (New-TemporaryFile).FullName
-        yazi $args --cwd-file="$tmp"
-        $cwd = Get-Content -Path $tmp -Encoding UTF8
-        if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
-            Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
-        }
-        Remove-Item -Path $tmp
+function y {
+    $git_dir = Split-Path -Parent (Split-Path -Parent (Get-Command git).Source)
+    $env:YAZI_FILE_ONE = "$git_dir\apps\git\current\usr\bin\file.exe"
+
+    $tmp = (New-TemporaryFile).FullName
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp -Encoding UTF8
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
     }
+    Remove-Item -Path $tmp
 }
+
 
 ## --- set proxy ---
 
@@ -75,8 +85,10 @@ function unset_proxy {
     }
 }
 
+
 ## --- environment variables ---
 
 # Rust
 $env:RUSTUP_DIST_SERVER = "https://mirrors.ustc.edu.cn/rust-static"
 $env:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
+
