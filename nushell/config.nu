@@ -67,7 +67,7 @@ def set-proxy [proxy_url = "127.0.0.1:7897"] {
     match $nu.os-info.name {
         # only valid for windows
         "windows" => {
-            let http_proxy = "http://$proxy_url"
+            let http_proxy = $"http://($proxy_url)"
 
             $env.HTTP_PROXY = $http_proxy
             $env.HTTPS_PROXY = $http_proxy
