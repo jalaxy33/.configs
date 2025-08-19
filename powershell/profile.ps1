@@ -1,10 +1,31 @@
 # profile.ps1 or Microsoft.PowerShell_profile.ps1
 
+## --- Help functions ---
+
 function Command-Exist {
     param(
         [string]$name
     )
     Get-Command $name -ErrorAction SilentlyContinue
+}
+
+
+## --- shell behaviors ---
+
+# make tab completion using /
+# Reference: 
+#  - https://www.bilibili.com/video/BV1B2421K7Qo/
+#  - https://github.com/PowerShell/PSReadLine/issues/3205
+# PSReadLine is required： https://github.com/PowerShell/PSReadLine
+Set-PSReadLineKeyHandler -Chord Tab -ScriptBlock {
+  $content = ""
+  $index = 0
+
+  [Microsoft.PowerShell.PSConsoleReadLine]::ViTabCompleteNext()
+  [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref] $content, [ref] $index)
+  [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+  [Microsoft.PowerShell.PSConsoleReadLine]::Insert($content.Replace('\','/'))
+  [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($index)
 }
 
 
@@ -23,7 +44,6 @@ function init_starship {
 function init_scoop {
     Invoke-Expression (&scoop-search --hook)
 }
-
 
 
 ## --- alias --- 
