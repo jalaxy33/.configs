@@ -33,6 +33,7 @@ def command-exist [cmd] {
 ## --- init apps ---
 
 # homebrew
+# FIXME: not working
 command-exist /home/linuxbrew/.linuxbrew/bin/brew | if $in {
     /home/linuxbrew/.linuxbrew/bin/brew shellenv
 }
@@ -80,7 +81,7 @@ def --env y [...args] {
 
 ## --- set proxy (windows only) ---
 
-def set-proxy [proxy_url = "127.0.0.1:7897"] {
+def --env set-proxy [proxy_url = "127.0.0.1:7897"] {
     match $nu.os-info.name {
         # only valid for windows
         "windows" => {
@@ -102,7 +103,7 @@ def set-proxy [proxy_url = "127.0.0.1:7897"] {
     }
 }
 
-def unset-proxy [] {
+def --env unset-proxy [] {
     match $nu.os-info.name {
         # only valid for windows
         "windows" => {
