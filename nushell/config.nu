@@ -32,6 +32,11 @@ def command-exist [cmd] {
 
 ## --- init apps ---
 
+# homebrew
+command-exist /home/linuxbrew/.linuxbrew/bin/brew | if $in {
+    /home/linuxbrew/.linuxbrew/bin/brew shellenv
+}
+
 # starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
@@ -41,6 +46,18 @@ source ~/.zoxide.nu
 
 
 ## --- alias ---
+
+alias vi = vim
+
+# nushell configs
+alias vinu = vi $nu.config-path
+alias vinenv = vi $nu.env-path
+alias hxnu = hx $nu.config-path
+alias hxenv = hx $nu.env-path
+alias catnu = cat $nu.config-path
+alias catenv = cat $nu.env-path
+alias batnu = bat $nu.config-path
+alias batenv = bat $nu.env-path
 
 # prettier ls
 alias eza = eza -a --icons --git
