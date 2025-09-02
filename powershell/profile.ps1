@@ -32,18 +32,16 @@ Set-PSReadLineKeyHandler -Chord Tab -ScriptBlock {
 ## --- init apps ---
 
 if (Command-Exist zoxide) { Invoke-Expression (& { (zoxide init powershell | Out-String) }) }
-# if (Command-Exist uv) {
-#     (& uv --generate-shell-completion powershell) | Out-String | Invoke-Expression
-#     (& uvx --generate-shell-completion powershell) | Out-String | Invoke-Expression
-# }
 
-function init_starship {
+function init-starship {
     Invoke-Expression (&starship init powershell)
 }
+# if (Command-Exist starship) { init-starship }
 
-function init_scoop {
+function init-scoop {
     Invoke-Expression (&scoop-search --hook)
 }
+# if (Command-Exist scoop-search) { init-scoop }
 
 
 ## --- alias --- 
@@ -71,6 +69,20 @@ function y {
         Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
     }
     Remove-Item -Path $tmp
+}
+
+# starship
+function starship-git-on {
+    starship config git_branch.disabled false
+    starship config git_status.disabled false
+    starship config git_state.disabled false
+    starship config git_commit.disabled false
+}
+function starship-git-off {
+    starship config git_branch.disabled true
+    starship config git_status.disabled true
+    starship config git_state.disabled true
+    starship config git_commit.disabled true
 }
 
 
