@@ -21,7 +21,6 @@
 #     config nu --doc | nu-highlight | less -R
 #
 
-
 $env.config.buffer_editor = 'hx'   # code, vi, hx
 
 ## --- help functions ---
@@ -32,15 +31,12 @@ def command-exist [cmd] {
 
 ## --- init apps ---
 
-# homebrew
-# FIXME: not working
-command-exist /home/linuxbrew/.linuxbrew/bin/brew | if $in {
-    /home/linuxbrew/.linuxbrew/bin/brew shellenv
+# starship
+command-exist starship | if $in {
+    mkdir ($nu.data-dir | path join "vendor/autoload")
+    starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 }
 
-# starship
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # zoxide
 source ~/.zoxide.nu
@@ -77,7 +73,6 @@ def --env y [...args] {
 	}
 	rm -fp $tmp
 }
-
 
 ## --- set proxy (windows only) ---
 
