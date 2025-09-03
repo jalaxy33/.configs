@@ -73,17 +73,3 @@ function y {
     }
     Remove-Item -Path $tmp
 }
-
-# starship
-function starship-git-on {
-    starship config git_branch.disabled false
-    starship config git_status.disabled false
-    starship config git_state.disabled false
-    starship config git_commit.disabled false
-}
-function starship-git-off {
-    starship config git_branch.disabled true
-    starship config git_status.disabled true
-    starship config git_state.disabled true
-    starship config git_commit.disabled true
-}
