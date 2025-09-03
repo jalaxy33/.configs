@@ -22,6 +22,7 @@
 #
 
 $env.config.buffer_editor = 'hx'   # code, vi, hx
+$env.config.use_kitty_protocol = true
 
 ## --- help functions ---
 

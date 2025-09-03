@@ -28,11 +28,22 @@ zoxide init nushell | save -f ~/.zoxide.nu
 
 # yazi
 if $nu.os-info.name == "windows" {
-    $env.YAZI_FILE_ONE = which git | get path | get 0 | path dirname | path dirname | path join "apps/git/current/usr/bin/file.exe"
+    let file_cmd = which git | get path | get 0 | path dirname | path dirname | path join "apps/git/current/usr/bin/file.exe"
+    $file_cmd | path exists | if $in {
+        $env.YAZI_FILE_ONE = $file_cmd
+    }
 }
+
+
+# Homebrew
+$env.HOMEBREW_BREW_GIT_REMOTE = "https://mirrors.ustc.edu.cn/brew.git"
+$env.HOMEBREW_CORE_GIT_REMOTE = "https://mirrors.ustc.edu.cn/homebrew-core.git"
+$env.HOMEBREW_BOTTLE_DOMAIN = "https://mirrors.ustc.edu.cn/homebrew-bottles"
+$env.HOMEBREW_API_DOMAIN = "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 
 # Rust
 $env.RUSTUP_DIST_SERVER = "https://mirrors.ustc.edu.cn/rust-static"
 $env.RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
+
 

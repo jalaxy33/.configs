@@ -32,16 +32,8 @@ Set-PSReadLineKeyHandler -Chord Tab -ScriptBlock {
 ## --- init apps ---
 
 if (Command-Exist zoxide) { Invoke-Expression (& { (zoxide init powershell | Out-String) }) }
-
-function init-starship {
-    Invoke-Expression (&starship init powershell)
-}
-if (Command-Exist starship) { init-starship }
-
-function init-scoop {
-    Invoke-Expression (&scoop-search --hook)
-}
-if (Command-Exist scoop-search) { init-scoop }
+if (Command-Exist starship) { Invoke-Expression (&starship init powershell) }
+if (Command-Exist scoop-search) { Invoke-Expression (&scoop-search --hook) }
 
 
 ## --- alias --- 
