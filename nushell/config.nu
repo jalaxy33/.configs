@@ -40,7 +40,9 @@ command-exist starship | if $in {
 
 
 # zoxide
-source ~/.zoxide.nu
+command-exist zoxide | if $in {
+    source ~/.zoxide.nu
+}
 
 
 ## --- alias ---
