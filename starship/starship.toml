@@ -1,5 +1,7 @@
 # ~/.config/starship.toml
 
+command_timeout = 5000
+
 # Place this line directly under the `command_timeout` entry at the top of the file
 palette = "catppuccin_macchiato"
 
@@ -32,3 +34,8 @@ surface0 = "#363a4f"
 base = "#24273a"
 mantle = "#1e2030"
 crust = "#181926"
+
+
+[directory]
+truncation_length = 8 
+use_os_path_sep = false
