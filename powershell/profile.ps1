@@ -65,3 +65,47 @@ function y {
     }
     Remove-Item -Path $tmp
 }
+
+
+## --- set proxy ---
+
+function set_proxy() {
+    $proxy_url = "127.0.0.1:7897"
+    $http_proxy = "http://$proxy_url"
+
+    $env:HTTP_PROXY = $http_proxy
+    $env:HTTPS_PROXY = $http_proxy
+
+    if (Command-Exist git) {
+        git config --global https.proxy $http_proxy
+        git config --global https.proxy $http_proxy
+    }
+    
+
+    if (Command-Exist scoop) {
+        scoop config proxy $proxy_url
+    }
+}
+
+function unset_proxy {
+    if (Test-Path Env:HTTP_PROXY) {
+        Remove-Item Env:HTTP_PROXY
+        Remove-Item Env:HTTPS_PROXY
+    }
+
+    if (Command-Exist git) {
+        git config --global --unset http.proxy
+        git config --global --unset https.proxy
+    }
+    
+    if (Command-Exist scoop) {
+        scoop config rm proxy
+    }
+}
+
+
+## --- environment variables ---
+
+# Rust
+$env:RUSTUP_DIST_SERVER = "https://mirrors.ustc.edu.cn/rust-static"
+$env:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
