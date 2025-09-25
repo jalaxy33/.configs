@@ -39,3 +39,7 @@ crust = "#181926"
 [directory]
 truncation_length = 8 
 use_os_path_sep = false
+
+
+[container]
+disabled = true
