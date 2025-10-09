@@ -6,13 +6,17 @@ if [ ! -f /lib/x86_64-linux-gnu/libunistring.so.2 ]; then
     echo "libunistring.so.2 not found, creating symlink..."
     ln -s /lib/x86_64-linux-gnu/libunistring.so.5 /lib/x86_64-linux-gnu/libunistring.so.2
 fi
-
-# Linux mirror
-bash <(curl -sSL https://linuxmirrors.cn/main.sh)
 apt update
 
 # install necessary packages
+apt install curl wget git vim
+
+# Linux mirror
+bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+
+# install necessary packages
 apt install software-properties-common aptitude
+aptitude safe-upgrade
 
 # ssh
 aptitude install openssh-server
@@ -41,19 +45,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # install softwares with brew
 brew install starship zellij uv
 
-# install softawares with pip
-uv tool install nvitop
-
-# clean up unnecessary files
-aptitude clean && aptitude autoclean
-brew cleanup --prune all
-rm -rf /tmp/*
-rm -rf ~/.cache/*
-
-# clean old log files
-journalctl --vacuum-time=7d
-
-
 # copy config files
 cp ~/.bashrc ~/.bashrc.bak
 curl -s https://xget.xi-xu.me/gh/jalaxy33/.configs/raw/refs/heads/main/bash/minimal.bashrc -o ~/.bashrc
@@ -69,4 +60,26 @@ curl -s https://xget.xi-xu.me/gh/jalaxy33/.configs/raw/refs/heads/main/uv/uv.tom
 
 mkdir -p ~/.config/pip
 curl -s https://xget.xi-xu.me/gh/jalaxy33/.configs/raw/refs/heads/main/pip/pip.conf -o ~/.config/pip/pip.conf
+
+
+# install softawares with pip
+uv tool install nvitop
+
+# create global python environment
+uv venv ~/python-venv -p 3.12
+ln -sf /root/python-venv/bin/python /bin/python
+ln -sf /root/python-venv/bin/python3 /bin/python3
+
+# set VIRTUAL_ENV to avoid uv warning
+echo -e '\n#virtual environment\nexport VIRTUAL_ENV=/root/python-venv\nalias pip="uv pip"' >> ~/.bashrc
+echo -e '\n#virtual environment\nset -x VIRTUAL_ENV "/root/python-venv"\nalias pip="uv pip"' >> ~/.config/fish/config.fish
+
+# clean up unnecessary files
+aptitude clean && aptitude autoclean
+brew cleanup --prune all
+rm -rf /tmp/*
+rm -rf ~/.cache/*
+
+# clean old log files
+journalctl --vacuum-time=7d
 

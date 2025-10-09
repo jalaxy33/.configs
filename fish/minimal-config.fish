@@ -11,6 +11,7 @@ if status is-interactive
     alias vifish="vim ~/.config/fish/config.fish"
     alias catfish="cat ~/.config/fish/config.fish"
     alias ls="eza --icons --git -a"
+    alias ll="ls -l"
     alias cd="z"
 
     # homebrew
