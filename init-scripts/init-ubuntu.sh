@@ -71,8 +71,13 @@ ln -sf /root/python-venv/bin/python /bin/python
 ln -sf /root/python-venv/bin/python3 /bin/python3
 
 # set VIRTUAL_ENV to avoid uv warning
-echo -e '\n#virtual environment\nexport VIRTUAL_ENV=/root/python-venv\nalias pip="uv pip"' >> ~/.bashrc
-echo -e '\n#virtual environment\nset -x VIRTUAL_ENV "/root/python-venv"\nalias pip="uv pip"' >> ~/.config/fish/config.fish
+echo -e '\n# virtual environment\nexport VIRTUAL_ENV=/root/python-venv\nalias pip="uv pip"\nsource /root/python-venv/bin/activate\n' >> ~/.bashrc
+echo -e '\n# virtual environment\nset -x VIRTUAL_ENV "/root/python-venv"\nalias pip="uv pip"\nsource /root/python-venv/bin/activate.fish\n' >> ~/.config/fish/config.fish
+
+# install python packages
+bash
+pip install ipython
+
 
 # clean up unnecessary files
 aptitude clean && aptitude autoclean

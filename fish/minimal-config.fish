@@ -5,13 +5,15 @@ if status is-interactive
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     starship init fish | source
     zoxide init fish | source
+    fzf --fish | source
 
     # aliasing
     alias vi="vim"
     alias vifish="vim ~/.config/fish/config.fish"
+    alias hxfish="hx ~/.config/fish/config.fish"
     alias catfish="cat ~/.config/fish/config.fish"
+    alias batfish="bat ~/.config/fish/config.fish"
     alias ls="eza --icons --git -a"
-    alias ll="ls -l"
     alias cd="z"
 
     # homebrew

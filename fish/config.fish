@@ -27,11 +27,6 @@ if status is-interactive
     set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
     set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
 
-    # uv
-    uv generate-shell-completion fish | source
-    uvx --generate-shell-completion fish | source
-    fish_add_path "$HOME/.local/bin"
-
 end
 
 

@@ -113,13 +113,18 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(fzf --bash)"
 
 
 # aliasing
 alias vi="vim"
-alias vibash="vim ~/.bashrc"
+alias vifish="vim ~/.config/fish/config.fish"
+alias hxfish="hx ~/.config/fish/config.fish"
+alias catfish="cat ~/.config/fish/config.fish"
+alias batfish="bat ~/.config/fish/config.fish"
 alias ls="eza --icons --git -a"
 alias cd="z"
+
 
 # Homebrew
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
