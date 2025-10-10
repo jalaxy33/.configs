@@ -86,5 +86,5 @@ rm -rf /tmp/*
 rm -rf ~/.cache/*
 
 # clean old log files
-journalctl --vacuum-time=7d
+journalctl --vacuum-size=50M
 

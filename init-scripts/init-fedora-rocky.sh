@@ -1,11 +1,12 @@
 #!/bin/bash
 # init-rocky.sh
 
-# install necessary packages
-dnf install git vim curl wget
-
 # Linux mirror (root required: sudo su - root)
 bash <(curl -sSL https://linuxmirrors.cn/main.sh)
+
+# install necessary packages
+dnf install git vim curl wget
+dnf install gcc-c++
 
 # install fish shell
 dnf install fish
@@ -34,9 +35,14 @@ brew install starship zellij eza zoxide fzf
 brew install bat helix 
 brew install yazi uv
 
+# install rust
+export RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
+export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 # copy config files
 cp ~/.bashrc ~/.bashrc.bak
-curl -s https://xget.xi-xu.me/gh/jalaxy33/.configs/raw/refs/heads/main/bash/minimal.bashrc -o ~/.bashrc
+curl -s https://xget.xi-xu.me/gh/jalaxy33/.configs/raw/refs/heads/main/bash/.bashrc -o ~/.bashrc
 
 mkdir -p ~/.config/fish
 curl -s https://xget.xi-xu.me/gh/jalaxy33/.configs/raw/refs/heads/main/fish/config.fish -o ~/.config/fish/config.fish
@@ -70,4 +76,8 @@ rm -rf ~/.cache/*
 sudo rm -rf /tmp/*
 sudo rm -rf /var/tmp/*
 
-
+# clean rust
+cargo install cargo-cache  # install cargo-cache first
+cargo cache -age
+rm -rf ~/.cargo/registry/*
+rm -rf ~/.cargo/git/*

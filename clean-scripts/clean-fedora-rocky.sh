@@ -17,4 +17,8 @@ rm -rf ~/.cache/*
 sudo rm -rf /tmp/*
 sudo rm -rf /var/tmp/*
 
-
+# clean rust
+# install cargo-cache first: cargo install cargo-cache
+cargo cache -age
+rm -rf ~/.cargo/registry/*
+rm -rf ~/.cargo/git/*
