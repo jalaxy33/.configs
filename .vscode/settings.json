@@ -1,0 +1,82 @@
+{
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.terminal.shellIntegration.enabled": true,
+    "python.analysis.enablePerfTelemetry": true,
+    "python.analysis.importFormat": "relative",
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.analysis.supportDocstringTemplate": true,
+    "python.analysis.typeEvaluation.strictDictionaryInference": true,
+    "python.analysis.typeEvaluation.strictListInference": true,
+    "python.analysis.typeEvaluation.strictSetInference": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.inlineCompletionsAccessibilityVerbose": true,
+    "remote.SSH.remotePlatform": {
+        "10.11.65.4": "linux",
+        "10.14.6.39": "linux",
+        "AIstation": "linux"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "atomicviz.features.lastNotified": "3.0.1",
+    "atomicviz.installed": true,
+    "atomicviz.layout.showInSidebar": false,
+    "atomicviz.toolbars.isToolbarSearch": false,
+    "atomicviz.toolbars.isToolbarVisibility": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "workbench.iconTheme": "icons",
+    "explorer.copyPathSeparator": "/",
+    "explorer.copyRelativePathSeparator": "/",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "Nushell": {
+            "path": "nu"
+        }
+    },
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.cargo.buildScripts.enable": false,
+    "rust-analyzer.procMacro.enable": false,
+    "rust-analyzer.checkOnSave": false,
+    "rust-analyzer.cargo.buildScripts.rebuildOnSave": false,
+    "cmake.automaticReconfigure": false,
+    "cmake.configureOnEdit": false,
+    "cmake.configureOnOpen": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "chat.mcp.autostart": "newAndOutdated",
+}

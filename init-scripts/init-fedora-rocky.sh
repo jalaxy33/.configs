@@ -78,6 +78,4 @@ sudo rm -rf /var/tmp/*
 
 # clean rust
 cargo install cargo-cache  # install cargo-cache first
-cargo cache -age
-rm -rf ~/.cargo/registry/*
-rm -rf ~/.cargo/git/*
+cargo cache -r all -e
