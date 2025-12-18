@@ -10,6 +10,7 @@ if status is-interactive
 
     # aliasing
     alias vi="vim"
+    alias hx="helix"
     alias vifish="vim ~/.config/fish/config.fish"
     alias hxfish="hx ~/.config/fish/config.fish"
     alias catfish="cat ~/.config/fish/config.fish"
