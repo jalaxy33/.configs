@@ -142,13 +142,26 @@ export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
 # define functions
 
 function set_proxy() {
-    export HTTP_PROXY="http://127.0.0.1:7897"
-    export HTTPS_PROXY="http://127.0.0.1:7897"
+    proxy_url="127.0.0.1:7890"
+    http_proxy="http://$proxy_url"
+
+    echo "proxy_url: $proxy_url"
+
+    export ALL_PROXY=$http_proxy
+    export HTTP_PROXY=$http_proxy
+    export HTTPS_PROXY=$http_proxy
+
+    git config --global http.proxy $http_proxy
+    git config --global https.proxy $http_proxy
 }
 
 function unset_proxy() {
+    unset ALL_PROXY
     unset HTTP_PROXY
     unset HTTPS_PROXY
+
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
 }
 
 function y() {
