@@ -83,7 +83,7 @@
 
 ```json
 {
-		"editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
 }
 ```
 
@@ -91,8 +91,8 @@
 
 ```json
 {
-		"editor.inlayHints.enabled": "offUnlessPressed",
-		"editor.inlineCompletionsAccessibilityVerbose": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.inlineCompletionsAccessibilityVerbose": true,
 }
 ```
 
@@ -100,8 +100,8 @@
 
 ```json
 {
-	  "explorer.copyPathSeparator": "/",
-	  "explorer.copyRelativePathSeparator": "/",
+    "explorer.copyPathSeparator": "/",
+    "explorer.copyRelativePathSeparator": "/",
 }
 ```
 
@@ -109,8 +109,8 @@
 
 ```json
 {
-		"rust-analyzer.check.command": "clippy",
-		"rust-analyzer.cargo.buildScripts.enable": false,
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.cargo.buildScripts.enable": false,
     "rust-analyzer.checkOnSave": false,
     "rust-analyzer.cargo.buildScripts.rebuildOnSave": false,
     "rust-analyzer.completion.callable.snippets": "none",
@@ -121,7 +121,7 @@
 
 ```json
 {
-		"python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
     "python.terminal.shellIntegration.enabled": true,
     "python.analysis.enablePerfTelemetry": true,
     "python.analysis.importFormat": "relative",
@@ -138,7 +138,7 @@
 
 ```json
 {
-		"python.languageServer": "None",
+    "python.languageServer": "None",
 }
 ```
 
@@ -146,7 +146,7 @@
 
 ```json
 {
-		"cmake.automaticReconfigure": false,
+    "cmake.automaticReconfigure": false,
     "cmake.configureOnEdit": false,
     "cmake.configureOnOpen": false,
 }
