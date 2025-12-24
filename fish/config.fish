@@ -18,6 +18,11 @@ if status is-interactive
     alias ls="eza --icons --git -a"
     alias cd="z"
 
+    alias vibash="vim ~/.bashrc"
+    alias hxbash="hx ~/.bashrc"
+    alias catbash="cat ~/.bashrc"
+    alias batbash="bat ~/.bashrc"
+
     # homebrew
     set -x HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
     set -x HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
@@ -27,6 +32,10 @@ if status is-interactive
     # config rust
     set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
     set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
+
+    # config nodejs
+    set -x FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node/
+    fnm env --use-on-cd --shell fish | source
 
 end
 
