@@ -9,12 +9,13 @@ if status is-interactive
     # aliases
     alias vi="vim"
     alias hx="helix"
+    alias ls="eza --icons --git -a"
+    alias cd="z"
+
     alias vifish="vim ~/.config/fish/config.fish"
     alias hxfish="hx ~/.config/fish/config.fish"
     alias catfish="cat ~/.config/fish/config.fish"
     alias batfish="bat ~/.config/fish/config.fish"
-    alias ls="eza --icons --git -a"
-    alias cd="z"
 
     alias vibash="vim ~/.bashrc"
     alias hxbash="hx ~/.bashrc"
