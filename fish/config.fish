@@ -2,7 +2,6 @@
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    source "$HOME/.cargo/env.fish"
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     starship init fish | source
     zoxide init fish | source
@@ -32,6 +31,7 @@ if status is-interactive
     # config rust
     set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
     set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
+    source "$HOME/.cargo/env.fish"
 
     # config nodejs
     set -x FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node/
