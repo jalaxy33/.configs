@@ -116,7 +116,7 @@ eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
 
 
-# aliasing
+# aliases
 alias vi="vim"
 alias vibash="vim ~/.bashrc"
 alias hxbash="hx ~/.bashrc"
