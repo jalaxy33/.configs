@@ -8,7 +8,7 @@ if status is-interactive
     zoxide init fish | source
     fzf --fish | source
 
-    # aliasing
+    # aliases
     alias vi="vim"
     alias hx="helix"
     alias vifish="vim ~/.config/fish/config.fish"
