@@ -46,12 +46,13 @@ eval "$(fzf --bash)"
 # more aliases
 alias vi="vim"
 alias hx="helix"
+alias ls="eza --icons --git -a"
+alias cd="z"
+
 alias vibash="vim ~/.bashrc"
 alias hxbash="hx ~/.bashrc"
 alias catbash="cat ~/.bashrc"
 alias batbash="bat ~/.bashrc"
-alias ls="eza --icons --git -a"
-alias cd="z"
 
 
 # Homebrew
