@@ -108,10 +108,9 @@ fi
 
 # functions
 
-
 # startup apps
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-. "$HOME/.cargo/env" 
+
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
@@ -137,6 +136,7 @@ export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 # config rust
 export RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
 export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
+. "$HOME/.cargo/env" 
 
 
 # define functions
