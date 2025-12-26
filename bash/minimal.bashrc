@@ -50,14 +50,6 @@ alias vibash="vim ~/.bashrc"
 alias hxbash="hx ~/.bashrc"
 alias catbash="cat ~/.bashrc"
 alias batbash="bat ~/.bashrc"
-
-
-# aliases
-alias vi="vim"
-alias vibash="vim ~/.bashrc"
-alias hxbash="hx ~/.bashrc"
-alias catbash="cat ~/.bashrc"
-alias batbash="bat ~/.bashrc"
 alias ls="eza --icons --git -a"
 alias cd="z"
 
