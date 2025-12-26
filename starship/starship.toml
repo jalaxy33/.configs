@@ -44,8 +44,9 @@ use_os_path_sep = false
 [container]
 disabled = true
 
-
+# set `disabled` to false if shell indicated needed
+# reference: https://starship.rs/config/#shell
 [shell]
 fish_indicator = ''
 format = '[$indicator]($style)'
-disabled = false
+disabled = true
