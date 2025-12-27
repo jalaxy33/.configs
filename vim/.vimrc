@@ -13,7 +13,6 @@ syntax on
 "高亮当前行
 set cursorline
 
-"与系统剪贴板同步
-"Linux：需要安装gvim，wayland桌面需要安装 wl-clipboard
+"与系统剪贴板同步，需要安装gvim
 set clipboard=unnamedplus
 
