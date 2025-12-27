@@ -29,6 +29,9 @@ if status is-interactive
     # config nodejs
     set -x FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node/
 
+    # config go
+    set -x GOPROXY "https://mirrors.tencent.com/go/"
+
 end
 
 function set_proxy
