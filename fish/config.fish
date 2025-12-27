@@ -38,6 +38,9 @@ if status is-interactive
     set -x FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node/
     fnm env --use-on-cd --shell fish | source
 
+    # config go
+    set -x GOPROXY "https://mirrors.tencent.com/go/"
+
 end
 
 
