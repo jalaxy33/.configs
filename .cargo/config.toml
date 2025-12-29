@@ -1,3 +1,5 @@
+# project `.cargo/config.toml` or `~/.cargo/config.toml`
+
 [source.crates-io]
 replace-with = 'aliyun'
 
@@ -5,13 +7,9 @@ replace-with = 'aliyun'
 registry = "sparse+https://mirrors.aliyun.com/crates.io-index/"
 
 
-# === Build Speed Optimization ===
+# faster linker on Linux
+# install mold and clang first
+[target.'cfg(target_os = "linux")']
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
 
-[profile.dev]
-debug = 1               # Line tables only - faster compilation
-incremental = true      # Enable incremental compilation
-
-[profile.release]
-opt-level = 3
-lto = "thin"
-codegen-units = 16
