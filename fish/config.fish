@@ -4,7 +4,6 @@ if status is-interactive
     set fish_greeting ""
 
     # Commands to run in interactive sessions can go here
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     starship init fish | source
     zoxide init fish | source
     fzf --fish | source
@@ -25,20 +24,14 @@ if status is-interactive
     alias catbash="cat ~/.bashrc"
     alias batbash="bat ~/.bashrc"
 
-    # homebrew
-    set -x HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
-    set -x HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
-    set -x HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
-    set -x HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-    
     # config rust
     set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
     set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
-    source "$HOME/.cargo/env.fish"
+    #source "$HOME/.cargo/env.fish"
 
     # config nodejs
     set -x FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node/
-    fnm env --use-on-cd --shell fish | source
+    #fnm env --use-on-cd --shell fish | source
 
     # config go
     set -x GOPROXY "https://mirrors.tencent.com/go/"
