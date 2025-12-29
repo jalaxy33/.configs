@@ -63,7 +63,15 @@ alias batfish="bat ~/.config/fish/config.fish"
 # config rust
 export RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
 export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
-. "$HOME/.cargo/env" 
+#. "$HOME/.cargo/env" 
+
+
+# config nodejs
+export FNM_NODE_DIST_MIRROR="https://npmmirror.com/mirrors/node/"
+#eval "$(fnm env --use-on-cd --shell bash)"
+
+# config go
+export GOPROXY="https://mirrors.tencent.com/go/"
 
 
 # proxy functions
