@@ -55,6 +55,11 @@ alias hxbash="hx ~/.bashrc"
 alias catbash="cat ~/.bashrc"
 alias batbash="bat ~/.bashrc"
 
+alias vifish="vim ~/.config/fish/config.fish"
+alias hxfish="hx ~/.config/fish/config.fish"
+alias catfish="cat ~/.config/fish/config.fish"
+alias batfish="bat ~/.config/fish/config.fish"
+
 
 # Homebrew
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
