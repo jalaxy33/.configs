@@ -38,7 +38,6 @@ alias l='ls -CF'
 
 
 # startup apps
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
@@ -59,13 +58,6 @@ alias vifish="vim ~/.config/fish/config.fish"
 alias hxfish="hx ~/.config/fish/config.fish"
 alias catfish="cat ~/.config/fish/config.fish"
 alias batfish="bat ~/.config/fish/config.fish"
-
-
-# Homebrew
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
-export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 
 # config rust
