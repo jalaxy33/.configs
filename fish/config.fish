@@ -1,6 +1,8 @@
 # ~/.config/fish/config.fish
 
 if status is-interactive
+    set fish_greeting ""
+
     # Commands to run in interactive sessions can go here
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     starship init fish | source
