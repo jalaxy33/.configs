@@ -130,5 +130,5 @@ function unset_proxy {
 ## --- environment variables ---
 
 # Rust
-$env:RUSTUP_DIST_SERVER = "https://mirrors.ustc.edu.cn/rust-static"
-$env:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
+$env:RUSTUP_DIST_SERVER = "https://rsproxy.cn"
+$env:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
