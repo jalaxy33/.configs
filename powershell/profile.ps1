@@ -2,8 +2,11 @@
 #   powershell 7: ~/Document/PowerShell
 #   older version: ~/Document/WindowsPowerShell
 
-# necessary: install `scoop`
+# [Necessary!!!] install `scoop`
 #   might be helpful: https://github.com/lzwme/scoop-proxy-cn
+
+# Recommended Nerd Font:
+#   `Mapple-Mono-NF-CN` or `JetBrainsMono-NF-Mono`
 
 
 ## --- Help functions ---
