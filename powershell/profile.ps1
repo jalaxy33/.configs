@@ -9,7 +9,7 @@
 
 # Necessary apps:
 #   7zip git
-#   starship scoop-search zoxide eza 
+#   starship scoop-search zoxide eza scoop-search
 #   yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
 
 
