@@ -1,12 +1,24 @@
 # profile.ps1 or Microsoft.PowerShell_profile.ps1
-#   powershell 7: ~/Document/PowerShell
-#   older version: ~/Document/WindowsPowerShell
+#    powershell 7: ~/Document/PowerShell
+#    older version: ~/Document/WindowsPowerShell
+
 
 # [Necessary!!!] install `scoop`
 #   might be helpful: https://github.com/lzwme/scoop-proxy-cn
 
+
+# Necessary apps:
+#   7zip git
+#   starship scoop-search zoxide eza 
+#   yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
+
+
 # Recommended Nerd Font:
 #   `Mapple-Mono-NF-CN` or `JetBrainsMono-NF-Mono`
+
+
+# [Hint] create soft link by: 
+#    New-Item -ItemType SymbolicLink -Path "C:\Path\To\Link" -Target "C:\Path\To\Original" 
 
 
 ## --- Help functions ---
