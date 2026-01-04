@@ -1,4 +1,10 @@
 # profile.ps1 or Microsoft.PowerShell_profile.ps1
+#   powershell 7: ~/Document/PowerShell
+#   older version: ~/Document/WindowsPowerShell
+
+# necessary: install `scoop`
+#   might be helpful: https://github.com/lzwme/scoop-proxy-cn
+
 
 ## --- Help functions ---
 
@@ -31,9 +37,9 @@ Set-PSReadLineKeyHandler -Chord Tab -ScriptBlock {
 
 ## --- init apps ---
 
-if (Command-Exist zoxide) { Invoke-Expression (& { (zoxide init powershell | Out-String) }) }
 if (Command-Exist starship) { Invoke-Expression (&starship init powershell) }
 if (Command-Exist scoop-search) { Invoke-Expression (&scoop-search --hook) }
+if (Command-Exist zoxide) { Invoke-Expression (& { (zoxide init powershell | Out-String) }) }
 
 
 ## --- alias --- 
@@ -50,6 +56,8 @@ function ll { ls -l @args }
 if (Command-Exist zoxide) { Set-Alias -Name cd -Value z -Option AllScope }
 
 # yazi
+# scoop install yazi
+# scoop install ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
 function y {
     $git_dir = Split-Path -Parent (Split-Path -Parent (Get-Command git).Source)
     $file_cmd_path = "$git_dir\apps\git\current\usr\bin\file.exe"
@@ -70,7 +78,7 @@ function y {
 ## --- set proxy ---
 
 function set_proxy() {
-    $proxy_url = "127.0.0.1:7897"
+    $proxy_url = "127.0.0.1:7890"
     $http_proxy = "http://$proxy_url"
 
     $env:HTTP_PROXY = $http_proxy
