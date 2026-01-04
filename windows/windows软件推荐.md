@@ -38,7 +38,7 @@
 
 ## 日常用
 
-- [vscode](https://code.visualstudio.com/)：代码编辑器/IDE，推荐的[插件和设置](../.vscode/vscode常用插件%26设置)
+- [vscode](https://code.visualstudio.com/)：代码编辑器/IDE，推荐的[插件和设置](../.vscode/vscode常用插件%26设置.md)
 - 截图工具：[pixpin](https://pixpin.com/)
 
 
