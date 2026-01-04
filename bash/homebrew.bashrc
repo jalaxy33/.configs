@@ -64,8 +64,8 @@ export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 
 # config rust
-export RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
-export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 . "$HOME/.cargo/env" 
 
 
