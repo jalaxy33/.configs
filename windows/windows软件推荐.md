@@ -44,10 +44,18 @@
 
 
 
+可选：
+- [scrcpy](https://github.com/Genymobile/scrcpy)：通过ADB控制安卓手机。
+- 视频播放器：[PotPlayer](https://potplayer.daum.net/) 或 [vlc](https://www.videolan.org/)
+- [Audacity](https://www.audacityteam.org/)：录制和编辑音频。
+
+
+
 ## 性能优化
 
 - [Win11Debloat](https://github.com/Raphire/Win11Debloat)：卸载预装软件的powershell脚本。
-
+- [winutil](https://github.com/ChrisTitusTech/winutil)：另一个windows精简优化脚本。
+- [WinToys](https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=zh-cn&gl=US)：提供windows进阶选项，这个在 Microsoft Store里。
 
 
 ## 功能定制
