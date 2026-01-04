@@ -63,7 +63,9 @@
 这一部分大部分参考了[这个视频](https://www.bilibili.com/video/BV1TxBNBsErQ)。
 
 - [powertoys](https://github.com/microsoft/PowerToys)：提供了各种有用的工具。
-- [everything](https://www.voidtools.com/zh-cn/)：速度极快的文件搜索工具，[everything-powertoys](https://github.com/lin-ycv/EverythingPowerToys/wiki) 使得可以在`powertoys-run`中使用`everything`（需要分别安装三个工具）。
+- [everything](https://www.voidtools.com/zh-cn/)：速度极快的文件搜索工具，相关工具：
+    - [everything-powertoys](https://github.com/lin-ycv/EverythingPowerToys/wiki) 使得可以在`powertoys-run`中使用`everything`（需要分别安装三个工具）
+    - [everything-toolbar](https://github.com/srwi/EverythingToolbar)：在任务栏的搜索中使用 everything。
 - [altsnap](https://github.com/RamonUnch/AltSnap)：按住 alt 即可拖动窗口。
 - [NileSoft-Shell](https://nilesoft.org/)：类win10的右键菜单样式
 - [icon-viewer](https://www.botproductions.com/iconview/iconview.html)：右键属性页查看/保存图标文件
