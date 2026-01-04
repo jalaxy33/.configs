@@ -1,4 +1,4 @@
-# project `.cargo/config.toml` or `~/.cargo/config`
+# project `.cargo/config.toml` or `~/.cargo/config` or `~/.cargo.config.toml`
 
 # crates.io proxy
 [source.crates-io]
