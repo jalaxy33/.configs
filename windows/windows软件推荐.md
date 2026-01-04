@@ -12,7 +12,7 @@
 - [office-tool-plus](https://otp.landian.vip/zh-cn/)：下载指定版本的 Office 套件。
 
 可选：
-- 好用的浏览器：不想用自带的 Edge 的话，目前推荐 [Brave](https://brave.com/zh/) 或 [Zen](https://zen-browser.app/)。
+- 好用的浏览器：不想用自带的 Edge 的话，目前推荐 [Brave](https://brave.com/zh/) 或 [Zen-Browser](https://zen-browser.app/)。
 
 
 ## 命令行工具
@@ -40,6 +40,28 @@
 
 - [vscode](https://code.visualstudio.com/)：代码编辑器/IDE，推荐的[插件和设置](../.vscode/vscode常用插件%26设置.md)
 - 截图工具：[pixpin](https://pixpin.com/)
+- [localsend](https://localsend.org/)：局域网文件传输。
+
+
+
+## 性能优化
+
+- [Win11Debloat](https://github.com/Raphire/Win11Debloat)：卸载预装软件的powershell脚本。
+
+
+
+## 功能定制
+
+这一部分大部分参考了[这个视频](https://www.bilibili.com/video/BV1TxBNBsErQ)。
+
+- [powertoys](https://github.com/microsoft/PowerToys)：提供了各种有用的工具。
+- [everything](https://www.voidtools.com/zh-cn/)：速度极快的文件搜索工具，[everything-powertoys](https://github.com/lin-ycv/EverythingPowerToys/wiki) 使得可以在`powertoys-run`中使用`everything`（需要分别安装三个工具）。
+- [altsnap](https://github.com/RamonUnch/AltSnap)：按住 alt 即可拖动窗口。
+- [NileSoft-Shell](https://nilesoft.org/)：类win10的右键菜单样式
+- [icon-viewer](https://www.botproductions.com/iconview/iconview.html)：右键属性页查看/保存图标文件
+
+
+
 
 
 
