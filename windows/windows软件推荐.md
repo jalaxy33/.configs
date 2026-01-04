@@ -69,7 +69,7 @@
 - [altsnap](https://github.com/RamonUnch/AltSnap)：按住 alt 即可拖动窗口。
 - [NileSoft-Shell](https://nilesoft.org/)：类win10的右键菜单样式
 - [icon-viewer](https://www.botproductions.com/iconview/iconview.html)：右键属性页查看/保存图标文件
-
+- [AutoHotKey](https://www.autohotkey.com/)：自定义脚本快捷键
 
 
 
