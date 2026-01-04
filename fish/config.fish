@@ -25,8 +25,8 @@ if status is-interactive
     alias batbash="bat ~/.bashrc"
 
     # config rust
-    set -x RUSTUP_DIST_SERVER "https://mirrors.ustc.edu.cn/rust-static"
-    set -x RUSTUP_UPDATE_ROOT "https://mirrors.ustc.edu.cn/rust-static/rustup"
+    set -x RUSTUP_DIST_SERVER "https://rsproxy.cn"
+    set -x RUSTUP_UPDATE_ROOT "https://rsproxy.cn/rustup"
     #source "$HOME/.cargo/env.fish"
 
     # config nodejs
