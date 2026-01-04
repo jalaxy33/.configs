@@ -74,20 +74,15 @@ if (Command-Exist zoxide) { Set-Alias -Name cd -Value z -Option AllScope }
 # scoop install yazi
 # scoop install ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
 function y {
-    $git_dir = Split-Path -Parent (Split-Path -Parent (Get-Command git).Source)
-    $file_cmd_path = "$git_dir\apps\git\current\usr\bin\file.exe"
-    if (Test-Path $file_cmd_path) {
-        $env:YAZI_FILE_ONE = $file_cmd_path
-    }
-
     $tmp = (New-TemporaryFile).FullName
-    yazi $args --cwd-file="$tmp"
+    yazi.exe $args --cwd-file="$tmp"
     $cwd = Get-Content -Path $tmp -Encoding UTF8
     if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
         Set-Location -LiteralPath (Resolve-Path -LiteralPath $cwd).Path
     }
     Remove-Item -Path $tmp
 }
+
 
 
 ## --- set proxy ---
