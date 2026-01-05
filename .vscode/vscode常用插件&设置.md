@@ -90,14 +90,6 @@
 }
 ```
 
-如果用的是 [`Maple Mono`](https://github.com/subframe7536/maple-font)，换成：
-```json
-{
-    "editor.fontFamily": "Maple Mono NF CN",
-}
-```
-
-
 ### 内联提示
 
 ```json
