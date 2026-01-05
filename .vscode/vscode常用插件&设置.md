@@ -83,10 +83,16 @@
 ## 自定义设置
 
 ### 终端字体
-
+Jetbrains Mono：
 ```json
 {
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
+}
+```
+如果是 [Maple Mono](https://github.com/subframe7536/maple-font)，改为：
+```json
+{
+    "editor.fontFamily": "Maple Mono NF CN",
 }
 ```
 
