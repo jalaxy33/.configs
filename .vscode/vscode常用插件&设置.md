@@ -21,6 +21,7 @@
 - 在vscode内使用Lazygit：`Lazygit for VSCode`
 - 远程连接：`Remote Development`  或 `Remote - SSH`
 - AI助手：`Github Copilot` 或 `Lingma`
+    - 需要一点额外配置的： `Claude Code for VS Code` （需要安装 `claude code` 命令行工具，国内使用需要[额外配置](https://www.cnblogs.com/gordonMlxg/articles/19103691)，目前推荐 [MiniMax](https://platform.minimaxi.com/docs/guides/text-ai-coding-tools) 的模型）
 
 ### 代码阅读
 
@@ -59,10 +60,12 @@
 - 常用文件格式化：`Prettier`
 - 查看Excel和CSV：`Excel Viewer`
 - toml语法高亮：`Less TOML`  或 `Even Better TOML`
+- CSV彩色显示：`Rainbow CSV`
 
 【可选】
 
 - 十六进制编辑器：`Hex Editor`
+- Markdown 预览加强：`Markdown Preview Enhanced`
 - Markdown to PDF：`Markdown PDF`
 - pdf阅读器：`vscode-pdf`
 - docx阅读器：`Docx/ODT Viewer`
@@ -86,6 +89,14 @@
     "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
 }
 ```
+
+如果用的是 [`Maple Mono`](https://github.com/subframe7536/maple-font)，换成：
+```json
+{
+    "editor.fontFamily": "Maple Mono NF CN",
+}
+```
+
 
 ### 内联提示
 
