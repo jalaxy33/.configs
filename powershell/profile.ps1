@@ -127,3 +127,7 @@ function unset_proxy {
 # Rust
 $env:RUSTUP_DIST_SERVER = "https://rsproxy.cn"
 $env:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
+
+# yazi
+#YAZI_FILE_ONE = "C:\Scoop\ScoopApps\apps\git\current\usr\bin\file.exe"
+
