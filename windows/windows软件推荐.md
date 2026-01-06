@@ -15,7 +15,9 @@
 - [火绒](https://www.huorong.cn/)：安静的杀毒软件，安装后会自动屏蔽Windows防火墙。
 
 设置：
-- 建议打开 `sudo` 功能：设置 > 系统 > 高级 > 启用sudo > 配置sudo运行应用程序为「内联」
+- 开启 `sudo` 功能：
+    - win11自带：设置 > 系统 > 高级 > 启用sudo > 配置sudo运行应用程序为「内联」
+    - 或者额外装一个 `scoop install sudo`
 
 
 ## 命令行工具
