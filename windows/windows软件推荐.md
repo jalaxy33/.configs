@@ -11,7 +11,7 @@
 - [office-tool-plus](https://otp.landian.vip/zh-cn/)：下载指定版本的 Office 套件。
 
 可选：
-- 好用的浏览器：不想用自带的 Edge 的话，目前推荐 [Brave](https://brave.com/zh/) 或 [Zen-Browser](https://zen-browser.app/)。
+- 好用的浏览器：不想用自带的 Edge 的话，目前推荐 [Brave](https://brave.com/zh/) 或 [Zen-Browser](https://zen-browser.app/)，想要简单的可以试试 [Helium](https://helium.computer/)。
 - [火绒](https://www.huorong.cn/)：安静的杀毒软件，安装后会自动屏蔽Windows防火墙。
 
 
