@@ -58,13 +58,13 @@
 
 ## 性能优化
 
-- [Win11Debloat](https://github.com/Raphire/Win11Debloat)：卸载预装软件的powershell脚本。
+- [Win11Debloat](https://github.com/Raphire/Win11Debloat)：卸载预装软件的powershell脚本。终端管理员运行：
     ```sh
-    & ([scriptblock]::Create((irm "https://debloat.raphi.re/"))) | sudo run
+    & ([scriptblock]::Create((irm "https://debloat.raphi.re/")))
     ```
-- [winutil](https://github.com/ChrisTitusTech/winutil)：另一个windows精简优化脚本。
+- [winutil](https://github.com/ChrisTitusTech/winutil)：另一个windows精简优化脚本。终端管理员运行：
     ```sh
-    irm "https://christitus.com/win" | iex | sudo run 
+    irm "https://christitus.com/win" | iex
     ```
 - [WinToys](https://apps.microsoft.com/detail/9p8ltpgcbzxd?hl=zh-cn&gl=US)：提供windows进阶选项，这个在 Microsoft Store里。
 
