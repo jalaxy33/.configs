@@ -2,7 +2,6 @@
 ## 初次进入系统时
 
 必装：
-- [火绒](https://www.huorong.cn/)：安静的杀毒软件，安装后会自动屏蔽Windows防火墙。
 - [scoop](https://github.com/ScoopInstaller/Scoop#installation)：命令行软件管理工具，国内推荐按照 [scoop-proxy-cn](https://github.com/lzwme/scoop-proxy-cn) 的方案安装。
 - [clash-party](https://clashparty.org/)：代理工具。
 - [Bulk-Crap-Uninstaller](https://www.bcuninstaller.com/)：软件卸载工具，比 Geek-Uninstaller 好用。
@@ -13,6 +12,7 @@
 
 可选：
 - 好用的浏览器：不想用自带的 Edge 的话，目前推荐 [Brave](https://brave.com/zh/) 或 [Zen-Browser](https://zen-browser.app/)。
+- [火绒](https://www.huorong.cn/)：安静的杀毒软件，安装后会自动屏蔽Windows防火墙。
 
 
 ## 命令行工具
