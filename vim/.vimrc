@@ -16,6 +16,12 @@ set cursorline
 "鼠标控制光标定位
 set mouse=a
 
+"使用空格替代TAB
+:set ts=4
+:set sw=4
+:set expandtab
+:set autoindent
+
 "与系统剪贴板同步，需要安装gvim
 set clipboard=unnamedplus
 
