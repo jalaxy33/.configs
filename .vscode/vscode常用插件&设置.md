@@ -12,13 +12,13 @@
 - 带颜色高亮的命令行输出：`Output Colorizer`
 - 自动填充路径：`Path Intellisense`
 - TODO/FIXME高亮：`TODO Highlight`
-- 快速搜索：`FindItFaster`（需要提前安装软件 `fzf`, `rg`, `bat`）
 - 文件操作：`File Utils`
 
 【可选】
 
 - 代码截图：`CodeSnap-plus`
 - 在vscode内使用Lazygit：`Lazygit for VSCode`
+- 快速搜索：`FindItFaster`（需要提前安装软件 `fzf`, `rg`, `bat`）
 - 远程连接：`Remote Development`  或 `Remote - SSH`
 - 自动拉取github wiki：`Git WiKi Sync`
 - AI助手：`Github Copilot` 或 `Lingma`
