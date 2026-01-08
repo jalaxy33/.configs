@@ -20,6 +20,7 @@
 - 代码截图：`CodeSnap-plus`
 - 在vscode内使用Lazygit：`Lazygit for VSCode`
 - 远程连接：`Remote Development`  或 `Remote - SSH`
+- 自动拉取github wiki：`Git WiKi Sync`
 - AI助手：`Github Copilot` 或 `Lingma`
     - 需要一点额外配置的： `Claude Code for VS Code` （需要安装 `claude code` 命令行工具，国内使用需要[额外配置](https://www.cnblogs.com/gordonMlxg/articles/19103691)，目前推荐 [MiniMax](https://platform.minimaxi.com/docs/guides/text-ai-coding-tools) 的模型）
 
@@ -65,7 +66,6 @@
 【可选】
 
 - 十六进制编辑器：`Hex Editor`
-- Markdown 预览加强：`Markdown Preview Enhanced`
 - Markdown to PDF：`Markdown PDF`
 - pdf阅读器：`vscode-pdf`
 - docx阅读器：`Docx/ODT Viewer`
