@@ -72,7 +72,7 @@ vim ~/.claude.json
 ## 在vscode中使用
 
 先**安装 `Claude Code for VS Code` 扩展**。如果要使用开源模型，修改 vscode 的设置：
-- 如果安装了 CLI 工具，修改扩展设置，指定要用的模型即可：
+- 如果安装了 CLI 工具，保持默认就行。也可以修改扩展设置，指定要用的模型即可：
   ```json
     {
         "claude-code.selectedModel": "MiniMax-M2.1",
