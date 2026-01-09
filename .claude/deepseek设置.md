@@ -1,6 +1,8 @@
 
 模型名称：`Deepseek V3.2`
 
+**注：请将 `"ANTHROPIC_AUTH_TOKEN"` 字段更换为自己的 API key**。
+
 - Claude Code 环境变量 `~/.claude/settings.json`：
   ```json
   "env": {
