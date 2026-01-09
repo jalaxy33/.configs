@@ -1,4 +1,6 @@
 
+模型名称：`Deepseek V3.2`
+
 - Claude Code 环境变量 `~/.claude/settings.json`：
   ```json
   "env": {
