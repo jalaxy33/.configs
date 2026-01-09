@@ -13,6 +13,7 @@ if status is-interactive
     alias hx="helix"
     alias ls="eza --icons --git -a"
     alias cd="z"
+    alias rsyncp="rsync -alvhP"
 
     alias vifish="vim ~/.config/fish/config.fish"
     alias hxfish="hx ~/.config/fish/config.fish"
