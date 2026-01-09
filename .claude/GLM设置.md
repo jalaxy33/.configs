@@ -21,7 +21,7 @@
   ```
 
 - vscode 设置：
-  - 如果装了命令行工具
+  - 如果装了命令行工具，**保持默认就行**，也可以手动指定：
     ```json
     {
       "claude-code.selectedModel": "glm-4.7",
