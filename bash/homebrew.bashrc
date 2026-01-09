@@ -49,6 +49,7 @@ alias vi="vim"
 alias hx="helix"
 alias ls="eza --icons --git -a"
 alias cd="z"
+alias rsyncp="rsync -alvhP"
 
 alias vibash="vim ~/.bashrc"
 alias hxbash="hx ~/.bashrc"
