@@ -53,16 +53,18 @@ vim ~/.claude.json
     ```
     以 [MiniMax M2.1](https://platform.minimaxi.com/docs/guides/text-ai-coding-tools#%E9%85%8D%E7%BD%AE-minimax-api) 为例，将 `"ANTHROPIC_AUTH_TOKEN"` 字段换成自己的 key：
     ```json
-    "env": {
-      "ANTHROPIC_BASE_URL": "https://api.minimaxi.com/anthropic",
-      "ANTHROPIC_AUTH_TOKEN": "<YOUR_API_KEY>",
-      "API_TIMEOUT_MS": "3000000",
-      "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
-      "ANTHROPIC_MODEL": "MiniMax-M2.1",
-      "ANTHROPIC_SMALL_FAST_MODEL": "MiniMax-M2.1",
-      "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.1",
-      "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M2.1",
-      "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.1"
+    {
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://api.minimaxi.com/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "<YOUR_API_KEY>",
+        "API_TIMEOUT_MS": "3000000",
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
+        "ANTHROPIC_MODEL": "MiniMax-M2.1",
+        "ANTHROPIC_SMALL_FAST_MODEL": "MiniMax-M2.1",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.1",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M2.1",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.1"
+      }
     }
     ```
 
