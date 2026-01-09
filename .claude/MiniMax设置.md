@@ -21,45 +21,53 @@
   ```
 
 - vscode 设置：
-  ```json
-  {
-  		"claudeCode.environmentVariables": [
-          {
-              "name": "ANTHROPIC_BASE_URL",
-              "value": "https://open.bigmodel.cn/api/anthropic"
-          },
-          {
-              "name": "ANTHROPIC_AUTH_TOKEN",
-              "value": "<YOUR_API_KEY>"
-          },
-          {
-              "name": "API_TIMEOUT_MS",
-              "value": "3000000"
-          },
-          {
-              "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
-              "value": "1"
-          },
-          {
-              "name": "ANTHROPIC_MODEL",
-              "value": "glm-4.7"
-          },
-          {
-              "name": "ANTHROPIC_SMALL_FAST_MODEL",
-              "value": "glm-4.7"
-          },
-          {
-              "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
-              "value": "glm-4.7"
-          },
-          {
-              "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
-              "value": "glm-4.7"
-          },
-          {
-              "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
-              "value": "glm-4.5-air"
-          }
+  - 如果装了命令行工具
+    ```json
+    {
+      "claude-code.selectedModel": "MiniMax-M2.1",
+    }
+    ```
+  - 如果没装命令行工具： 
+    ```json
+    {
+      "claudeCode.environmentVariables": [
+        {
+          "name": "ANTHROPIC_BASE_URL",
+          "value": "https://open.bigmodel.cn/api/anthropic"
+        },
+        {
+          "name": "ANTHROPIC_AUTH_TOKEN",
+          "value": "<YOUR_API_KEY>"
+        },
+        {
+          "name": "API_TIMEOUT_MS",
+          "value": "3000000"
+        },
+        {
+          "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+          "value": "1"
+        },
+        {
+          "name": "ANTHROPIC_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_SMALL_FAST_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
+          "value": "MiniMax-M2.1"
+        }
       ],
-  }
-  ``` 
+    }
+    ``` 
+
