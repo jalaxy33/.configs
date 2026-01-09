@@ -2,6 +2,8 @@
 1. 使用 CLI 命令行工具 
 2. 在 IDE 中使用
 
+我的配置文件可以在[这里](https://github.com/jalaxy33/.configs/tree/main/.claude)找到。
+
 
 ## 开源模型推荐
 
