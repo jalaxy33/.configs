@@ -44,10 +44,12 @@ vim ~/.claude.json
 目前大部分的模型都提供了 Anthropic API 接入方式，请查询对应的 API 文档。
 
 1. 首先确保清除以下 Anthropic 相关的环境变量，以免影响其他 API 的正常使用：
-- `ANTHROPIC_AUTH_TOKEN`
-- `ANTHROPIC_BASE_URL`
+  - `ANTHROPIC_AUTH_TOKEN`
+  - `ANTHROPIC_BASE_URL`
 
-2. 编辑 Claude Code 的配置文件：
+2. 【方式一：自动配置】使用 [cc-switch](https://github.com/farion1231/cc-switch)。这个工具可以快速切换 Claude Code 的 API 配置，安装后启动软件，添加 API 供应商和对应的 API Key 即可。
+
+3. 【方式二：手动配置】编辑 Claude Code 的配置文件：
     ```sh
     vim ~/.claude/settings.json
     ```
