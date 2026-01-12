@@ -1,7 +1,7 @@
 
 [helix](https://docs.helix-editor.com/title-page.html) 是由 rust 开发的终端文本编辑器，定位类似于 neovim，提供了很多好用的开箱好用的功能。
 
-
+看到：「9.3 USING THE JUMPLIST」
 
 ## 键位
 
