@@ -106,3 +106,9 @@ function y() {
     rm -f -- "$tmp"
 }
 
+
+function clear_claude() {
+    find ~/.claude -mindepth 1 -not -name "settings.json" -delete
+    echo "claude history cleared."
+}
+
