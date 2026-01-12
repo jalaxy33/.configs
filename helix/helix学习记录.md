@@ -1,6 +1,7 @@
 
 [helix](https://docs.helix-editor.com/title-page.html) 是由 rust 开发的终端文本编辑器，定位类似于 neovim，提供了很多好用的开箱好用的功能。
 
+看到 【12.1】
 
 ## 键位
 
@@ -159,9 +160,9 @@
 
 - 使多个选区循环移位：`alt+(`（循环左移）/ `alt+)`（循环右移）
 
-    一般结合多选键 `s` 使用。
+    - 一般结合多选键 `s` 使用。
 
-    例如：`x`选择多行  >  `s`多选并回车  >   `alt+(`/`alt+)` 使各选区循环移位。
+        例如：`x`选择多行  >  `s`多选并回车  >   `alt+(`/`alt+)` 使各选区循环移位。
 
 - 调整缩进：`>`（向后缩进）/ `<`（向前缩进）
 - 注释一行：`ctrl+c`
@@ -169,26 +170,25 @@
 - 调整数字大小：`ctrl+a`（数字加一）/ `ctrl+x`（数字减一）
 - 跳转记录（jumplist）：`ctrl+s`（保存位置，save）
 
-    跳转命令：`ctrl+i`（jump in）/ `ctrl+o`（jump out）
-
-    使用方法：`ctrl+s`保存位置  >  浏览到其他地方  >  `ctrl+o`跳回记录的地方  >  `ctrl+i`回到跳转前的地方
+    - 跳转命令：`ctrl+i`（jump in）/ `ctrl+o`（jump out）
+    - 使用方法：`ctrl+s`保存位置  >  浏览到其他地方  >  `ctrl+o`跳回记录的地方  >  `ctrl+i`回到跳转前的地方
 
 - 屏幕内快捷跳转：`gw`
 
-    使用该快捷键会给屏幕内的每个词赋予高亮的**双字符标签**（如 aa、ab），相当于一个快捷方式，可以快速定位并跳转到屏幕内任意位置。
+    - 使用该快捷键会给屏幕内的每个词赋予高亮的**双字符标签**（如 aa、ab），相当于一个快捷方式，可以快速定位并跳转到屏幕内任意位置。
 
-    按 ESC 退出该模式
+    - 按 ESC 退出该模式
  
 - 切换大小写：`~`（切换）/ `` ` ``（全部小写）/ `` alt+` ``全部大写
 
 - 正则搜索：`S`（大写S）
 
-    例如要让下面这段话的每句话开头大写：
+    - 例如要让下面这段话的每句话开头大写：
 
-    these are sentences. some sentences don't start with uppercase
+        these are sentences. some sentences don't start with uppercase
 letters! that is not good grammar. you can fix this.
 
-    `2x` 选择多行  >  `S` 键入 `\. | ! ` 搜索每句话末尾的句号或感叹号  >  `alt+;` 翻转选区内光标位置  >  `;` 将选区收缩到光标所在字符上  >  `` alt+` `` 设为大写
+        `2x` 选择多行  >  `S` 键入 `\. | ! ` 搜索每句话末尾的句号或感叹号  >  `alt+;` 翻转选区内光标位置  >  `;` 将选区收缩到光标所在字符上  >  `` alt+` `` 设为大写
 
 
 
