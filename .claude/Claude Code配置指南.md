@@ -136,8 +136,9 @@ vim ~/.claude.json
     }
     ```
 
+## 其他使用技巧
 
-## 删除历史对话记录
+### 删除历史对话记录
 
 - 删除某个历史对话
 
@@ -155,3 +156,26 @@ vim ~/.claude.json
     ```sh
     find ~/.claude -mindepth 1 -not -name "settings.json" -delete
     ```
+
+### 安装插件
+
+1. 运行 claude
+
+    ```sh
+    claude
+    ```
+2. 添加官方插件商城
+    ```
+    /plugin
+    ```
+
+    按右箭头选中 `Marketplaces` 标签，选择 「+ Add Marketplace」回车，输入仓库名称后回车：
+    ```
+    anthropics/claude-plugins-official
+    ```
+
+3. 然后就可以用 `/plugin install <插件名>` 或者在 `/plugin` > `Discover` 下安装插件了。
+
+**插件推荐**：
+- [code-simplifier](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier)
+
