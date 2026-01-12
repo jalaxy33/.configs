@@ -150,7 +150,8 @@ vim ~/.claude.json
     ```
 - 删除所有历史记录
 
-    直接删除 `~/.claude/` 目录即可
+    删除 `~/.claude/` 目录下除了 `settings.json` 外的所有文件
+
     ```sh
-    rm -rf ~/.claude
+    find ~/.claude -mindepth 1 -not -name "settings.json" -delete
     ```
