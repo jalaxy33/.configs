@@ -71,6 +71,7 @@ vim ~/.claude.json
     ```
 
 
+
 ## 在vscode中使用
 
 先**安装 `Claude Code for VS Code` 扩展**。如果要使用开源模型，修改 vscode 的设置：
@@ -136,3 +137,21 @@ vim ~/.claude.json
     ```
 
 
+## 删除历史对话记录
+
+- 删除某个历史对话
+
+    ```sh
+    claude
+    ```
+    ```sh​
+    /resume  # 选择对话
+    /clear   # 清除历史记录
+    ```
+​
+- 删除所有历史记录
+
+    直接删除 `~/.claude/` 目录即可
+    ```sh
+    rm -rf ~/.claude
+    ```
