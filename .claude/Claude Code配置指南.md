@@ -147,7 +147,7 @@ vim ~/.claude.json
     ```sh​
     /resume  # 选择对话
     /clear   # 清除历史记录
-    ```​
+    ```
 - 删除所有历史记录
 
     直接删除 `~/.claude/` 目录即可
