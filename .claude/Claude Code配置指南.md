@@ -75,7 +75,7 @@ vim ~/.claude.json
 - 如果安装了 CLI 工具，**保持默认就行**。也可以修改扩展设置，指定要用的模型：
   ```json
     {
-        "claude-code.selectedModel": "MiniMax-M2.1",
+      "claude-code.selectedModel": "MiniMax-M2.1",
     }
   ```
 - 如果没有安装 CLI 工具，配置会复杂一点
@@ -83,44 +83,44 @@ vim ~/.claude.json
     以 [MiniMax M2.1](https://platform.minimaxi.com/docs/guides/text-ai-coding-tools#%E5%9C%A8-claude-code-for-vs-code-%E6%8F%92%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8) 为例，将 `"ANTHROPIC_AUTH_TOKEN"` 字段换成自己的 key：
     ```json
     {
-    		"claudeCode.environmentVariables": [
-            {
-                "name": "ANTHROPIC_BASE_URL",
-                "value": "https://api.minimaxi.com/anthropic"
-            },
-            {
-                "name": "ANTHROPIC_AUTH_TOKEN",
-                "value": "<YOUR_API_KEY>"
-            },
-            {
-                "name": "API_TIMEOUT_MS",
-                "value": "3000000"
-            },
-            {
-                "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
-                "value": "1"
-            },
-            {
-                "name": "ANTHROPIC_MODEL",
-                "value": "MiniMax-M2.1"
-            },
-            {
-                "name": "ANTHROPIC_SMALL_FAST_MODEL",
-                "value": "MiniMax-M2.1"
-            },
-            {
-                "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
-                "value": "MiniMax-M2.1"
-            },
-            {
-                "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
-                "value": "MiniMax-M2.1"
-            },
-            {
-                "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
-                "value": "MiniMax-M2.1"
-            }
-        ],
+      "claudeCode.environmentVariables": [
+        {
+          "name": "ANTHROPIC_BASE_URL",
+          "value": "https://open.bigmodel.cn/api/anthropic"
+        },
+        {
+          "name": "ANTHROPIC_AUTH_TOKEN",
+          "value": "<YOUR_API_KEY>"
+        },
+        {
+          "name": "API_TIMEOUT_MS",
+          "value": "3000000"
+        },
+        {
+          "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+          "value": "1"
+        },
+        {
+          "name": "ANTHROPIC_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_SMALL_FAST_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
+          "value": "MiniMax-M2.1"
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
+          "value": "MiniMax-M2.1"
+        }
+      ],
     }
     ```
 
