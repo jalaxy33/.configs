@@ -71,12 +71,15 @@
     }
     ```
 
-- 配置MCP服务器
+- 可选：配置MCP服务器
+
+    **前提条件**：订阅 [coding plan](https://docs.bigmodel.cn/cn/coding-plan/quick-start)。
 
     修改 `~/.claude.json` 的 `mcpServers` 字段：
     ```sh
     vim ~/.claude.json
     ```
+    
     在其中添加[视觉理解](https://docs.bigmodel.cn/cn/coding-plan/mcp/vision-mcp-server)、[联网搜索](https://docs.bigmodel.cn/cn/coding-plan/mcp/search-mcp-server)、[网页读取](https://docs.bigmodel.cn/cn/coding-plan/mcp/reader-mcp-server)、[开源仓库](https://docs.bigmodel.cn/cn/coding-plan/mcp/zread-mcp-server)的MCP服务器：
  
     > 注意将 `<your_api_key>` 换成自己的 API key
