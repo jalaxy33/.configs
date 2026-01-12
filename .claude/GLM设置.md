@@ -73,7 +73,7 @@
 
 - 可选：配置MCP服务器
 
-    **前提条件**：订阅 [coding plan](https://docs.bigmodel.cn/cn/coding-plan/quick-start)。
+    **前提条件**：1. 订阅 [coding plan](https://docs.bigmodel.cn/cn/coding-plan/quick-start)；2. 安装 `npm`。
 
     修改 `~/.claude.json` 的 `mcpServers` 字段：
     ```sh
