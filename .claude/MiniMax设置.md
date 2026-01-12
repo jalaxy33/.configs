@@ -71,3 +71,34 @@
     }
     ``` 
 
+- 可选：配置MCP服务器
+
+    **前提条件**：1. 订阅 [coding plan](https://platform.minimaxi.com/subscribe/coding-plan)；2. 安装 [`uv`](https://docs.astral.sh/uv/)。
+
+    修改 `~/.claude.json` 的 `mcpServers` 字段：
+    ```sh
+    vim ~/.claude.json
+    ```
+
+    添加 MCP 服务器设置
+
+    ```json
+    {
+      "mcpServers": {
+        "MiniMax": {
+          "command": "uvx",
+          "args": [
+            "minimax-coding-plan-mcp",
+            "-y"
+          ],
+          "env": {
+            "MINIMAX_API_KEY": "填写你的API密钥",
+            "MINIMAX_API_HOST": "https://api.minimaxi.com"
+          }
+        }
+      }
+    }
+    ```
+
+
+
