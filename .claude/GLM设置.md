@@ -69,4 +69,54 @@
         }
       ],
     }
-    ``` 
+    ```
+
+- 配置MCP服务器
+
+    修改 `~/.claude.json` 的 `mcpServers` 字段：
+    ```sh
+    vim ~/.claude.json
+    ```
+    在其中添加[视觉理解](https://docs.bigmodel.cn/cn/coding-plan/mcp/vision-mcp-server)、[联网搜索](https://docs.bigmodel.cn/cn/coding-plan/mcp/search-mcp-server)、[网页读取](https://docs.bigmodel.cn/cn/coding-plan/mcp/reader-mcp-server)、[开源仓库](https://docs.bigmodel.cn/cn/coding-plan/mcp/zread-mcp-server)的MCP服务器：
+ 
+    > 注意将 `<your_api_key>` 换成自己的 API key
+
+    ```json
+    {
+      "mcpServers": {
+        "zai-mcp-server": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "-y",
+            "@z_ai/mcp-server"
+          ],
+          "env": {
+            "Z_AI_API_KEY": "<your_api_key>",
+            "Z_AI_MODE": "ZHIPU"
+          }
+        },
+        "web-search-prime": {
+          "type": "http",
+          "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
+          "headers": {
+            "Authorization": "Bearer <your_api_key>"
+          }
+        },
+        "web-reader": {
+          "type": "http",
+          "url": "https://open.bigmodel.cn/api/mcp/web_reader/mcp",
+          "headers": {
+            "Authorization": "Bearer <your_api_key>"
+          }
+        },
+        "zread": {
+          "type": "http",
+          "url": "https://open.bigmodel.cn/api/mcp/zread/mcp",
+          "headers": {
+            "Authorization": "Bearer <your_api_key>"
+          }
+        }
+      }
+    }
+    ```
