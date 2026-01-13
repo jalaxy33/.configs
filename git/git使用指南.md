@@ -28,9 +28,9 @@
 
 - 新项目设置用户名和邮箱（第一次commit前）
   ```sh
-  git config user.email "you@example.com"
+  git config user.name "Your Name"
   ```
   ```sh
-  git config user.name "Your Name"
+  git config user.email "you@example.com"
   ```
 
