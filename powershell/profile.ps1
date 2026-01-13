@@ -9,7 +9,7 @@
 
 # Necessary apps:
 #   7zip git
-#   starship scoop-search zoxide eza scoop-search
+#   starship scoop-search zoxide eza 
 #   yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
 
 
@@ -58,6 +58,14 @@ if (Command-Exist zoxide) { Invoke-Expression (& { (zoxide init powershell | Out
 
 
 ## --- alias --- 
+
+# pwsh config
+if (Command-Exist vim) {
+    function vipwsh { vim $PROFILE.CurrentUserAllHosts }
+}
+
+function catpwsh { cat $PROFILE.CurrentUserAllHosts }
+
 
 # prettier ls
 if (Command-Exist eza) {
@@ -124,10 +132,15 @@ function unset_proxy {
 
 ## --- environment variables ---
 
+# Editor
+if (Command-Exist vim) { 
+    $env:EDITOR = "vim"
+}
+
 # Rust
 $env:RUSTUP_DIST_SERVER = "https://rsproxy.cn"
 $env:RUSTUP_UPDATE_ROOT = "https://rsproxy.cn/rustup"
 
-# yazi
-#$env:YAZI_FILE_ONE = "C:\Scoop\ScoopApps\apps\git\current\usr\bin\file.exe"
+# for yazi
+#$env:YAZI_FILE_ONE = "C:\Scoop\GlobalScoopApps\apps\git\current\usr\bin\file.exe"
 
