@@ -1,4 +1,5 @@
-# project `.cargo/config.toml` or `~/.cargo/config` or `~/.cargo.config.toml`
+# `<PROJECT_ROOT>/.cargo/config.toml` or `~/.cargo/config` or `~/.cargo.config.toml`
+
 
 # crates.io proxy
 [source.crates-io]
@@ -18,6 +19,7 @@ git-fetch-with-cli = true
 
 
 # faster linker on linux
+## reference: https://bevy.org/learn/quick-start/getting-started/setup/#enable-fast-compiles-optional
 [target.'cfg(target_os = "linux")']
 linker = "clang"
 rustflags = ["-C", "link-arg=-fuse-ld=/usr/bin/mold"]
