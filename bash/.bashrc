@@ -37,6 +37,12 @@ alias la='ls -A'
 alias l='ls -CF'
 
 
+# try to activate homebrew
+if [[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+
 # startup apps
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
@@ -61,15 +67,26 @@ alias catfish="cat ~/.config/fish/config.fish"
 alias batfish="bat ~/.config/fish/config.fish"
 
 
+# Homebrew mirror
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
+export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+
+
 # config rust
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-#. "$HOME/.cargo/env" 
+if [[ -f "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
+fi
 
 
 # config nodejs
 export FNM_NODE_DIST_MIRROR="https://npmmirror.com/mirrors/node/"
-#eval "$(fnm env --use-on-cd --shell bash)"
+if command -v fnm >/dev/null 2>&1; then
+    eval "$(fnm env --use-on-cd --shell bash)"
+fi
 
 # config go
 export GOPROXY="https://mirrors.tencent.com/go/"

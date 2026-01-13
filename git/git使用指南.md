@@ -5,6 +5,11 @@
   git config --global https.proxy http://127.0.0.1:7890
   ```
 
+- 新项目自动设置push分支
+  ```sh
+  git config --global push.autoSetupRemote true
+  ```
+
 - 新项目设置用户名和邮箱（第一次commit前）
   ```sh
   git config user.email "you@example.com"
@@ -17,4 +22,5 @@
   ```sh
   git config credential.helper store
   ```
+
 

@@ -3,6 +3,11 @@
 if status is-interactive
     set fish_greeting ""
 
+    # try to activate homebrew
+    if command -q /home/linuxbrew/.linuxbrew/bin/brew
+        eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    end
+
     # Commands to run in interactive sessions can go here
     starship init fish | source
     zoxide init fish | source
@@ -25,21 +30,31 @@ if status is-interactive
     alias catbash="cat ~/.bashrc"
     alias batbash="bat ~/.bashrc"
 
+    # homebrew mirror
+    set -x HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
+    set -x HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
+    set -x HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+    set -x HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+
     # config rust
     set -x RUSTUP_DIST_SERVER "https://rsproxy.cn"
     set -x RUSTUP_UPDATE_ROOT "https://rsproxy.cn/rustup"
-    #source "$HOME/.cargo/env.fish"
+    if test -f "$HOME/.cargo/env.fish"
+        source "$HOME/.cargo/env.fish"
+    end
 
     # config nodejs
     set -x FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node/
-    #fnm env --use-on-cd --shell fish | source
+    if command -q fnm
+        fnm env --use-on-cd --shell fish | source
+    end
 
     # config go
     set -x GOPROXY "https://mirrors.tencent.com/go/"
 
 end
 
-
+# proxy functions
 function set_proxy
     set proxy_url "127.0.0.1:7890"
     set http_proxy "http://$proxy_url"
@@ -64,6 +79,7 @@ function unset_proxy
 end
 
 
+# other functions
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
@@ -72,7 +88,6 @@ function y
     end
     rm -f -- "$tmp"
 end
-
 
 function clear_claude
     find ~/.claude -mindepth 1 -not -name "settings.json" -delete
