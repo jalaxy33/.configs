@@ -7,9 +7,21 @@
   git config --global https.proxy http://127.0.0.1:7890
   ```
 
+- 取消代理
+
+  ```sh
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+  ```
+
 - 新项目自动设置push分支
   ```sh
   git config --global push.autoSetupRemote true
+  ```
+
+- 设置免验证push/pull（只需要验证一次）
+  ```sh
+  git config --global credential.helper store
   ```
 
 ## 项目设置
@@ -21,10 +33,4 @@
   ```sh
   git config user.name "Your Name"
   ```
-
-- 设置免验证push/pull（只需要验证一次）
-  ```sh
-  git config credential.helper store
-  ```
-
 
