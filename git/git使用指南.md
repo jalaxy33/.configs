@@ -1,4 +1,6 @@
 
+## 全局设置
+
 - 设置代理（将7890换成自己的端口）
   ```sh
   git config --global http.proxy http://127.0.0.1:7890
@@ -9,6 +11,8 @@
   ```sh
   git config --global push.autoSetupRemote true
   ```
+
+## 项目设置
 
 - 新项目设置用户名和邮箱（第一次commit前）
   ```sh
