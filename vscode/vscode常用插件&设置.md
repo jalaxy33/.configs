@@ -165,6 +165,7 @@ Jetbrains Mono：
 
 - 格式化文档 `editor.action.formatDocument`：`Shift+Alt+F`
 - 在终端中运行 Python 文件 `Run Python File in Terminal`：`Crtl+Alt+Enter`
+- 运行 rust 程序：`rust-analyzer: Run`：`Crtl+Alt+Enter`
 
 ## 遇到过的问题
 
