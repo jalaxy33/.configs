@@ -90,7 +90,7 @@ function y
 end
 
 function clear_claude
-    rm -rf ~/.claude/{cache,debug,projects,shell-snapshots,statsig,telemetry,todos,history.jsonl}
+    rm -rf ~/.claude/{cache,debug,projects,shell-snapshots,statsig,telemetry,todos,file-history,plans,history.jsonl}
     echo "claude history cleared."
 end
 
