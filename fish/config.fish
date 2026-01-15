@@ -90,7 +90,7 @@ function y
 end
 
 function clear_claude
-    find ~/.claude -mindepth 1 -not -name "settings.json" -delete
+    rm -rf ~/.claude/{cache,debug,projects,shell-snapshots,statsig,telemetry,todos,history.jsonl}
     echo "claude history cleared."
 end
 
