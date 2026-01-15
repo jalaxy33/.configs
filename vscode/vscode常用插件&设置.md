@@ -136,6 +136,7 @@ Jetbrains Mono：
   "rust-analyzer.checkOnSave": false,
   "rust-analyzer.cargo.buildScripts.rebuildOnSave": false,
   "rust-analyzer.completion.callable.snippets": "none"
+  "rust-analyzer.completion.autoimport.enable": false,
 }
 ```
 
