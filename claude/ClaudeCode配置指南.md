@@ -178,4 +178,4 @@ vim ~/.claude.json
 
 **插件推荐**：
 - [code-simplifier](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier)
-
+- [superpowers](https://github.com/obra/superpowers)
