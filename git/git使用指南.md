@@ -24,6 +24,13 @@
   git config --global credential.helper store
   ```
 
+- 设置默认分支为main
+
+  ```sh
+  git config --global init.defaultBranch main
+  ```
+
+
 ## 项目设置
 
 - 新项目设置用户名和邮箱（第一次commit前）
@@ -32,5 +39,11 @@
   ```
   ```sh
   git config user.email "you@example.com"
+  ```
+
+- 修改当前项目的分支为main
+
+  ```sh
+  git branch -M main
   ```
 
