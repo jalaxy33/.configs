@@ -1,0 +1,9 @@
+[project]
+name = "md2pdf"
+version = "0.1.0"
+description = "Convert markdown to Github-style PDF"
+requires-python = ">=3.12"
+dependencies = [
+    "markdown>=3.10.1",
+    "weasyprint>=68.0",
+]
