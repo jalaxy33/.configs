@@ -50,9 +50,11 @@
 
 - 运行 Local Server：`Live Preview`
 
-### C++
+### C/C++
 
+- 语言支持：`C/C++` 或 `clangd`
 - 编译工具：`CMake Tools` 或 `xmake`
+
 
 ### 特定文件格式
 
