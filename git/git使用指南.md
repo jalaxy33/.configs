@@ -57,6 +57,11 @@
   git branch
   ```
 
+- 切换分支
+  ```sh
+  git checkout <分支名>
+  ```
+
 - 创建并切换到新分支：
   ```sh
   git checkout -b <分支名>
