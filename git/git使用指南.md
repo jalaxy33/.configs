@@ -77,6 +77,54 @@
   git branch -d <分支名>
   ```
 
+### 标签管理
+
+- 查看所有tag：
+    ```sh
+    git tag -l
+    ```
+
+- 创建tag：
+    ```sh
+    # 添加注解（推荐）
+    git tag -a <tagname>
+
+    # 不添加注解
+    git tag <tagname>
+
+    # 为指定commit追加tag
+    git tag -a <tagname> <commit-hash>
+    ```
+
+- 复用tag：
+    ```sh
+    # 复用到当前commit
+    git tag -f <tagname>
+    
+    # 复用到指定commit
+    git tag -f <tagname> <commit-hash>
+    ```
+
+- 推送tag到远程
+    ```sh
+    git push -u origin <tagname>
+
+    # 推送所有tag
+    git push -u origin --tags
+
+    # 覆盖已存在的tag
+    git push --force origin <tagname>
+    ```
+
+- 删除tag
+    ```sh
+    # 本地删除
+    git tag -d <tagname>
+
+    # 远程删除
+    git push -u origin --delete <tagname>
+    ```
+
 
 ## 规范
 
