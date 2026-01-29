@@ -83,3 +83,48 @@
 - [Commit message 和 Change log 编写指南](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 - [Commit格式规范](https://doris.apache.org/zh-CN/community/how-to-contribute/commit-format-specification)
 
+
+## 遇到过的问题
+
+### 修改历史commits中的用户名和邮箱
+
+1. 在项目目录下创建一个脚本，下面是Linux/Mac下的例子：
+    ```sh
+    #!/bin/sh
+    git filter-branch --env-filter '
+    OLD_EMAIL="原来的邮箱"
+    CORRECT_NAME="现在的名字"
+    CORRECT_EMAIL="现在的邮箱"
+    if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+    then
+        export GIT_COMMITTER_NAME="$CORRECT_NAME"
+        export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+    fi
+    if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+    then
+        export GIT_AUTHOR_NAME="$CORRECT_NAME"
+        export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+    fi
+    ' --tag-name-filter cat -- --branches --tags
+    ```
+
+2. 然后用 `chmod +x <脚本名>.sh` 赋予执行权限后运行脚本，或者直接用 bash 运行这个脚本。
+    
+    > 如果运行失败，先执行下面的命令：
+    > ```sh
+    > git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch Rakefile' HEAD
+    > ```
+    > 然后再尝试执行
+
+3. 执行完成后，查看 `git log` 可以看到已经修改成功。
+4. 如果要推送到远程：
+    ```sh
+    git push origin --force --all
+    ```
+    去看一下 Github 你就会发现之前的提交记录中，name 和 email 信息都更新了。
+
+
+
+
+
+
