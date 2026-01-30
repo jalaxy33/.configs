@@ -172,6 +172,34 @@
     去看一下 Github 你就会发现之前的提交记录中，name 和 email 信息都更新了。
 
 
+### 历史提交中包含了大文件
+
+这种情况在将代码推送到远程库时不太方便，如果这些大文件非必须，可以通过创建孤立分支的方式来清除历史提交记录。
+
+1. 首先将大文件从 git 记录中删除：
+    ```sh
+    git rm --cached  <文件路径>
+    ```
+    `--cached`表示从git记录中删除而保留本地文件
+
+2. 将大文件添加到 `.gitignore` 中
+3. 提交更改
+    ```sh
+    git add -A
+    git commit -m "Remove large files from git"
+    ```
+4. 创建孤立分支
+    ```sh
+    git checkout --orphan new-branch
+    ```
+5. 删除旧分支
+    ```sh
+    git branch -D <old-branch>
+    ```
+6. 重命名为旧分支，实现覆盖
+    ```sh
+    git branch -m <old-branch>
+    ```
 
 
 
