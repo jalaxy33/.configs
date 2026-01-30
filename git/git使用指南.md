@@ -77,6 +77,13 @@
   git branch -d <分支名>
   ```
 
+### 版本管理
+
+- 恢复所有修改并删除未跟踪文件
+    ```sh
+    git checkout -- . && git clean -fd
+    ```
+
 ### 标签管理
 
 - 查看所有tag：
