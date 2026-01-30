@@ -79,6 +79,16 @@
 
 ### 版本管理
 
+- 暂存更改
+    ```sh
+    git stash
+    ```
+
+- 恢复暂存的更改
+    ```sh
+    git stash pop
+    ```
+
 - 恢复所有修改并删除未跟踪文件
     ```sh
     git checkout -- . && git clean -fd
