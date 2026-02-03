@@ -13,6 +13,7 @@
 - 自动填充路径：`Path Intellisense`
 - TODO/FIXME 高亮：`TODO Highlight`
 - 文件操作：`File Utils`
+- 自动跳出括号：`TabOut`
 
 【可选】
 
