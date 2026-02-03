@@ -11,7 +11,7 @@
 - [Deepseek V3.2](https://api-docs.deepseek.com/zh-cn/guides/anthropic_api)：极致性价比，擅长数学推理。缺点是幻觉率较高。
 - [GLM-4.7](http://docs.bigmodel.cn/cn/coding-plan/tool/claude-for-ide)：全能，擅长全栈开发、python，前端审美优秀，Agent能力强。缺点是稳定性有待提升。
 - [MiniMax M2.1](https://platform.minimaxi.com/docs/guides/text-ai-coding-tools)：擅长后端开发（Rust/Go/Java/C++），屎山代码重构首选。缺点是反应速度较慢。
-- [Kimi K2.5](https://platform.moonshot.cn/docs/guide/kimi-k2-5-quickstart)：支持视觉与coding多模态，提出了Agent Swarm功能，自称是当前最强开源模型（截止至2026年一月）。
+- [Kimi K2.5](https://platform.moonshot.cn/docs/guide/kimi-k2-5-quickstart)：支持视觉与文本多模态，提出了Agent Swarm功能。
 
 具体情况可以参考[这个视频](https://www.bilibili.com/video/BV1QLiiByEqz/)。
 
