@@ -131,7 +131,7 @@ function y() {
 
 
 function clear_claude() {
-    rm -rf ~/.claude/{cache,debug,projects,shell-snapshots,statsig,telemetry,todos,file-history,plans,history.jsonl}
+    rm -rf ~/.claude/{cache,debug,projects,shell-snapshots,statsig,telemetry,todos,file-history,plans,history.jsonl,session-env}
     echo "claude history cleared."
 }
 
