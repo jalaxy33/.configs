@@ -19,7 +19,7 @@ if status is-interactive
 end
 
 set fish_greeting ""
-set -p PATH ~/.local/bin
+#set -p PATH ~/.local/bin
 
 #-- try to activate homebrew
 if command -q /home/linuxbrew/.linuxbrew/bin/brew
