@@ -1,7 +1,20 @@
+# Node.js经验记录
 
-## 使用fnm安装Node工具链
+## 安装Node.js
 
-推荐使用 [fnm](https://github.com/Schniz/fnm) 安装 node 和 npm，个人觉得比 nvm 好用。
+### 单板本
+
+如果没有多版本需求，用包管理器安装 nodejs 和 npm 即可。
+
+以 ArchLinux 为例：
+
+```sh
+sudo pacman -S --needed nodejs npm
+```
+
+### 多版本
+
+如果有多版本需求，需要安装环境管理工具，推荐 [fnm](https://github.com/Schniz/fnm)，个人觉得比 nvm 好用。
 
 安装fnm之后，在配置文件中添加启动命令，来使用fnm安装的node工具链：
 
