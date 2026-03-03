@@ -143,7 +143,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
     ```json
     {
-    "zread": {
+      "zread": {
         "type": "http",
         "url": "https://open.bigmodel.cn/api/mcp/zread/mcp",
         "headers": {
