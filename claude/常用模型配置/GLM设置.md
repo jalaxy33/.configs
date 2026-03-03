@@ -95,7 +95,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
 > 注意将 `<your_api_key>` 换成自己的 API key
 
-- 视觉理解MCP
+- GLM视觉理解
 
     ```json
     {
@@ -111,7 +111,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
     }
     ```
 
-- 联网搜索MCP
+- GLM联网搜索
 
     ```json
     {
@@ -125,7 +125,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
     }
     ```
 
-- 网页读取MCP
+- GLM网页读取
 
   ```json
   {
@@ -139,7 +139,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
   }
   ```
 
-- 开源仓库MCP
+- GLM开源仓库
 
     ```json
     {
