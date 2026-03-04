@@ -79,6 +79,7 @@
 - nushell 角标 (.nu) 语法提示：`vscode-nushell-lang`
 - kdl配置文件语法高亮：`KDL`
 - 查看和编辑excalidraw文件：`Excalidraw`
+- wgsl语法高亮：`wgsl-analyzer`
 
 ### 主题外观
 
