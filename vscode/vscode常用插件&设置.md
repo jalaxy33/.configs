@@ -80,6 +80,7 @@
 - kdl配置文件语法高亮：`KDL`
 - 查看和编辑excalidraw文件：`Excalidraw`
 - wgsl语法高亮：`wgsl-analyzer`
+- 查看HDR图像：`VERIV`
 
 ### 主题外观
 
