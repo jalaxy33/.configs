@@ -92,21 +92,24 @@
 
 ### 终端字体
 
-Jetbrains Mono：
+- Jetbrains Mono：
 
-```json
-{
-  "editor.fontFamily": "JetBrainsMono Nerd Font Mono"
-}
-```
+  ```json
+  {
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono"
+  }
+  ```
 
-如果是 [Maple Mono](https://github.com/subframe7536/maple-font)，改为：
+- 如果是 [Jetbrains Maple Mono](https://github.com/SpaceTimee/Fusion-JetBrainsMapleMono)，改为：
 
-```json
-{
-  "editor.fontFamily": "Maple Mono NF CN"
-}
-```
+  ```json
+  {
+    "editor.fontFamily": "Jetbrains Maple Mono",
+    "editor.fontLigatures": true
+  }
+  ```
+
+  注：安装带 `-NF` 的 Nerdfont 字体版本。
 
 ### 内联提示
 
@@ -121,7 +124,7 @@ Jetbrains Mono：
 
 ```json
 {
-  "editor.wrappingStrategy": "advanced",
+  "editor.wrappingStrategy": "advanced"
 }
 ```
 
@@ -142,8 +145,8 @@ Jetbrains Mono：
   "rust-analyzer.cargo.buildScripts.enable": false,
   "rust-analyzer.checkOnSave": false,
   "rust-analyzer.cargo.buildScripts.rebuildOnSave": false,
-  "rust-analyzer.completion.callable.snippets": "none"
-  "rust-analyzer.completion.autoimport.enable": false,
+  "rust-analyzer.completion.callable.snippets": "none",
+  "rust-analyzer.completion.autoimport.enable": false
 }
 ```
 
