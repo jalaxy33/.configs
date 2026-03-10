@@ -3,7 +3,5 @@
 [mgr]
 show_hidden = true
 
-# [opener]
-# edit = [
-#     { run = "%EDITOR% %s", block = true, for = "windows" },
-# ]
+[open]
+prepend_rules = [{ url = "*.toml", use = ["edit"] }]
