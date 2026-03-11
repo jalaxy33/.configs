@@ -99,7 +99,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
     ```json
     {
-      "zai-mcp-server": {
+      "glm-zai-mcp-server": {
         "type": "stdio",
         "command": "npx",
         "args": ["-y", "@z_ai/mcp-server"],
@@ -115,7 +115,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
     ```json
     {
-      "web-search-prime": {
+      "glm-web-search-prime": {
         "type": "http",
         "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
         "headers": {
@@ -129,7 +129,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
   ```json
   {
-    "web-reader": {
+    "glm-web-reader": {
       "type": "http",
       "url": "https://open.bigmodel.cn/api/mcp/web_reader/mcp",
       "headers": {
@@ -143,7 +143,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
     ```json
     {
-      "zread": {
+      "glm-zread": {
         "type": "http",
         "url": "https://open.bigmodel.cn/api/mcp/zread/mcp",
         "headers": {
@@ -166,7 +166,7 @@ vim ~/.claude.json
 ```json
 {
   "mcpServers": {
-    "zai-mcp-server": {
+    "glm-zai-mcp-server": {
       "type": "stdio",
       "command": "npx",
       "args": ["-y", "@z_ai/mcp-server"],
@@ -175,21 +175,21 @@ vim ~/.claude.json
         "Z_AI_MODE": "ZHIPU"
       }
     },
-    "web-search-prime": {
+    "glm-web-search-prime": {
       "type": "http",
       "url": "https://open.bigmodel.cn/api/mcp/web_search_prime/mcp",
       "headers": {
         "Authorization": "Bearer <your_api_key>"
       }
     },
-    "web-reader": {
+    "glm-web-reader": {
       "type": "http",
       "url": "https://open.bigmodel.cn/api/mcp/web_reader/mcp",
       "headers": {
         "Authorization": "Bearer <your_api_key>"
       }
     },
-    "zread": {
+    "glm-zread": {
       "type": "http",
       "url": "https://open.bigmodel.cn/api/mcp/zread/mcp",
       "headers": {
