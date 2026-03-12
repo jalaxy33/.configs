@@ -53,3 +53,17 @@ fnm install --latest
 ```sh
 npm
 ```
+
+## 更换npm国内源
+
+更换为淘宝源：
+
+```sh
+npm config set registry https://registry.npmmirror.com
+```
+
+或者编辑 `~/.npmrc` 文件，添加以下内容：
+
+```
+registry=https://registry.npmmirror.com/
+```
