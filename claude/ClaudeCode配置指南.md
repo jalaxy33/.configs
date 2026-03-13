@@ -154,6 +154,7 @@ vim ~/.claude.json
   {
     "claudeCode.autosave": false,
     "claudeCode.useCtrlEnterToSend": true,
-    "claudeCode.preferredLocation": "sidebar"
+    "claudeCode.preferredLocation": "sidebar",
+    "claudeCode.initialPermissionMode": "plan",
   }
   ```
