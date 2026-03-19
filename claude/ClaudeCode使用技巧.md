@@ -2,9 +2,6 @@
 
 - 有用的参考资料:
   - [官方文档](https://code.claude.com/docs/en/overview)
-  - [smithery](https://smithery.ai/)：MCP和skills的资源库。
-  - [mcpmarket.com](https://mcpmarket.com/zh/server)：另一个MCP和skills的资源库，提供了一个 `skillfish` 的工具来帮助安装和管理skills，推荐。
-  - [AgentSkills](https://agentskills.so/zh)：搜索 skills
 
 ## 常用快捷键和命令
 
