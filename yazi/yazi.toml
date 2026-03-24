@@ -5,4 +5,8 @@ show_hidden = true
 sort_by = "natural"
 
 [open]
-prepend_rules = [{ url = "*.toml", use = ["edit"] }]
+prepend_rules = [
+  { url = "*.toml", use = ["edit"] }, 
+  { url = "*.list", use = ["edit"] }, 
+]
+
