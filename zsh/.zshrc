@@ -132,6 +132,78 @@ fi
 export GOPROXY="https://mirrors.tencent.com/go/"
 
 # -- Functions
+
+# rm_except: remove all files and directories in the current directory except specified ones
+function rm_except() {
+  local yes=0
+  local dry=0
+  local -a keep=()
+
+  # Parse command line arguments
+  for arg in "$@"; do
+    if [[ "$arg" == "-y" || "$arg" == "--yes" ]]; then
+      yes=1
+    elif [[ "$arg" == "--dry-run" ]]; then
+      dry=1
+    else
+      # Clean leading ./ and trailing /
+      clean=${arg#./}
+      clean=${clean%/}
+      [[ -n "$clean" ]] && keep+=("$clean")
+    fi
+  done
+
+  # Show usage if no items to keep are provided
+  if [ ${#keep[@]} -eq 0 ]; then
+    echo "Usage: rm_except [-y|--yes] [--dry-run] item1 [item2 ...]"
+    echo "       Supports brace expansion: rm_except ./{file1,file2,dir}"
+    echo "       Also supports paths: rm_except subdir/keep.txt"
+    echo "Example: rm_except important.txt myproject .git"
+    echo "         rm_except -y ./{.git,README.md,docs}"
+    return 1
+  fi
+
+  echo "=== Items to KEEP ==="
+  printf '  %s\n' "${keep[@]}"
+
+  echo -e "\n=== Items that WILL BE DELETED ==="
+
+  # Build exclusion conditions
+  local -a exclude=()
+  for k in "${keep[@]}"; do
+    if [[ "$k" == */* ]]; then
+      exclude+=(-o -wholename "./$k")
+    else
+      exclude+=(-o -name "$k")
+    fi
+  done
+
+  # Show what will be deleted
+  find . -mindepth 1 -maxdepth 1 ! \( "${exclude[@]:1}" \) -print | sort
+
+  # Dry-run mode: only show preview, do not delete anything
+  if [ $dry -eq 1 ]; then
+    echo -e "\nDry-run completed. No files were deleted."
+    return 0
+  fi
+
+  # Ask for confirmation unless -y is used
+  if [ $yes -eq 0 ]; then
+    read "confirm?Confirm deletion? (y/N): "
+    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+      echo "Cancelled."
+      return 0
+    fi
+  else
+    echo "Force mode (-y): proceeding with deletion..."
+  fi
+
+  # Perform the actual deletion
+  find . -mindepth 1 -maxdepth 1 ! \( "${exclude[@]:1}" \) -exec rm -rf {} +
+  echo "Deletion completed."
+}
+
+
 # proxy functions
 function set_proxy() {
     proxy_url="127.0.0.1:7890"
@@ -158,8 +230,11 @@ function unset_proxy() {
 
 # clean claude-code history
 function clear_claude() {
-    rm -rf ~/.claude/{ide,tasks,sessions,backups,cache,debug,projects,shell-snapshots,statsig,telemetry,todos,file-history,plans,history.jsonl,session-env}
-    echo "claude history cleared."
+  WORKDIR=$PWD
+  cd ~/.claude
+  rm_except -y settings.json config.json .credentials.json plugins/ skills/
+  cd $WORKDIR
+  echo "claude history cleared."
 }
 
 # UU加速器

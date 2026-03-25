@@ -120,6 +120,69 @@ end
 set -x GOPROXY "https://mirrors.tencent.com/go/"
 
 #-- functions
+
+# rm_except: remove all files and directories in the current directory except specified ones
+function rm_except --description 'Safe delete all except specified items'
+    set -l yes 0
+    set -l dry 0
+    set -l keep
+
+    for arg in $argv
+        if test "$arg" = -y -o "$arg" = --yes
+            set yes 1
+        else if test "$arg" = --dry-run
+            set dry 1
+        else
+            set clean (string replace -r '^\./' '' -- $arg | string replace -r '/$' '')
+            if test -n "$clean"
+                set -a keep $clean
+            end
+        end
+    end
+
+    if test (count $keep) -eq 0
+        echo "Usage: rm_except [-y|--yes] [--dry-run] item1 [item2 ...]"
+        echo "       Example: rm_except ./{.git,important.txt,myproject} subdir/keep.log"
+        return 1
+    end
+
+    echo "=== Items to KEEP ==="
+    for k in $keep
+        echo "  $k"
+    end
+
+    echo -e "\n=== Items that WILL BE DELETED ==="
+
+    set -l exclude
+    for k in $keep
+        if string match -q '*/*' -- $k
+            set -a exclude -o -wholename "./$k"
+        else
+            set -a exclude -o -name "$k"
+        end
+    end
+
+    find . -mindepth 1 -maxdepth 1 ! \( $exclude[2..] \) -print | sort
+
+    if test $dry -eq 1
+        echo -e "\nDry-run completed. No files were deleted."
+        return 0
+    end
+
+    if test $yes -eq 0
+        read --prompt-str "Confirm deletion? (y/N): " confirm
+        if not string match -qi y -- $confirm
+            echo "Cancelled."
+            return 0
+        end
+    else
+        echo "Force mode (-y): proceeding..."
+    end
+
+    find . -mindepth 1 -maxdepth 1 ! \( $exclude[2..] \) -exec rm -rf {} +
+    echo "Deletion completed."
+end
+
 # proxy functions
 function set_proxy
     set proxy_url "127.0.0.1:7890"
@@ -146,7 +209,10 @@ end
 
 # clean claude-code history
 function clear_claude
-    rm -rf ~/.claude/{ide,tasks,sessions,backups,cache,debug,projects,shell-snapshots,statsig,telemetry,todos,file-history,plans,history.jsonl,session-env}
+    set WORKDIR $PWD
+    cd ~/.claude
+    rm_except -y settings.json config.json .credentials.json plugins/ skills/
+    cd $WORKDIR
     echo "claude history cleared."
 end
 
