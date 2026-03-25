@@ -99,6 +99,10 @@
 
 **插件推荐**：
 
+- [claude-hud](https://github.com/jarrodwatts/claude-hud)：
+  - 添加插件市场：`/plugin marketplace add jarrodwatts/claude-hud`
+  - 安装插件：`/plugin install claude-hud`
+  - 启用插件：`/claude-hud:setup`
 - [code-simplifier](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier)
 - [superpowers](https://github.com/obra/superpowers)
 - [github](https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/github)
