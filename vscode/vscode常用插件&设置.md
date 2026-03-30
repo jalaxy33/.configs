@@ -52,6 +52,9 @@
 
 - 运行 Local Server：`Live Preview`
 
+可选：
+- Vue语法支持：`Vue (Official)`
+
 ### C/C++
 
 - 语言支持：`C/C++` 或 `clangd`
