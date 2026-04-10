@@ -5,7 +5,7 @@
 #  - zoxide, fzf, eza, yazi
 #
 # Optional but useful:
-#  - bat, helix, rsync, neovim, fastfetch, lazygit
+#  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -56,6 +56,11 @@ function y() {
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
+
+# jujutsu completion
+if command -v jj >/dev/null 2>&1; then
+  source <(COMPLETE=bash jj)
+fi
 
 #-- aliases
 # editor aliases

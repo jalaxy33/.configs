@@ -12,7 +12,7 @@
 #  - zoxide, fzf, eza, yazi
 #
 # Optional but useful:
-#  - bat, helix, rsync, neovim, fastfetch, lazygit
+#  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -39,6 +39,11 @@ function y
         builtin cd -- "$cwd"
     end
     rm -f -- "$tmp"
+end
+
+# jujutsu completion
+if command -q jj
+    COMPLETE=fish jj | source
 end
 
 #-- aliases
