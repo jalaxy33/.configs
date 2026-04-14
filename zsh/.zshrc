@@ -102,6 +102,11 @@ if command -v niri >/dev/null 2>&1; then
   alias cdniri="cd $NIRI_DIR"
 fi
 
+# task
+if command -v go-task >/dev/null 2>&1 && ! command -v task >/dev/null 2>&1; then
+  alias task='go-task'
+fi
+
 #-- alias functions
 function ls() {
   eza --icons --git -a $@

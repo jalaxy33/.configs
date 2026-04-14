@@ -80,6 +80,7 @@ alias hxzsh="hx $ZSH_CONFIG"
 alias catzsh="cat $ZSH_CONFIG"
 alias batzsh="bat $ZSH_CONFIG"
 
+# niri
 if command -q niri
     set NIRI_CONFIG "~/.config/niri/config.kdl"
     alias viniri="vi $NIRI_CONFIG"
@@ -90,6 +91,11 @@ if command -q niri
 
     set NIRI_DIR "~/.config/niri/"
     alias cdniri="cd $NIRI_DIR"
+end
+
+# task
+if command -q go-task; and not command -q task
+    alias task='go-task'
 end
 
 #-- alias functions
