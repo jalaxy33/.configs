@@ -30,7 +30,7 @@ from a import func_a
 extra_paths = ["src/mod"]   # 假设模块目录是 src/mod
 ```
 
-### 同级目录模块间的引用
+## 同级目录模块间的引用
 
 ```sh
 .
