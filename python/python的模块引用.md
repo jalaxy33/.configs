@@ -5,10 +5,10 @@
 现在有一个模块，其目录结构如下：
 
 ```sh
-mod/
-|- __init__.py
-|- a.py
-|- b.py
+mod
+├── __init__.py
+├── a.py
+└── b.py
 ```
 
 在 `b.py` 中引用 `a.py` 中的函数 `func_a`。由于已经有 `__init__.py`，直接引用即可：
@@ -34,8 +34,8 @@ extra_paths = ["src/mod"]   # 假设模块目录是 src/mod
 
 ```sh
 .
-|- a.py
-|- b.py
+├── a.py
+└── b.py
 ```
 
 在 `b.py` 中引用 `a.py` 中的函数 `func_a`：
