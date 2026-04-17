@@ -1,8 +1,6 @@
 # Kimi 设置
 
-模型名称：`kimi-k2.5`
-
-接入文档：<https://platform.moonshot.cn/docs/guide/agent-support>
+接入文档：<https://www.kimi.com/code/docs/more/third-party-agents.html>
 
 ## 模型配置
 
@@ -12,16 +10,11 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
 ```json
 {
-"env": {
-  "ANTHROPIC_BASE_URL": "https://api.minimaxi.com/anthropic",
-  "ANTHROPIC_AUTH_TOKEN": "<YOUR_API_KEY>",
-  "API_TIMEOUT_MS": "3000000",
-  "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
-  "ANTHROPIC_MODEL": "kimi-k2.5",
-  "ANTHROPIC_SMALL_FAST_MODEL": "kimi-k2.5",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "kimi-k2.5",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "kimi-k2.5",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "kimi-k2.5"
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.kimi.com/coding/",
+    "ANTHROPIC_AUTH_TOKEN": "<YOUR_API_KEY>",
+    "API_TIMEOUT_MS": "3000000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
   }
 }
 ```
@@ -45,7 +38,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
     "claudeCode.environmentVariables": [
       {
         "name": "ANTHROPIC_BASE_URL",
-        "value": "https://api.moonshot.cn/anthropic"
+        "value": "https://api.kimi.com/coding/"
       },
       {
         "name": "ANTHROPIC_AUTH_TOKEN",
@@ -58,26 +51,6 @@ Claude Code 环境变量 `~/.claude/settings.json`：
       {
         "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
         "value": "1"
-      },
-      {
-        "name": "ANTHROPIC_MODEL",
-        "value": "kimi-k2.5"
-      },
-      {
-        "name": "ANTHROPIC_SMALL_FAST_MODEL",
-        "value": "kimi-k2.5"
-      },
-      {
-        "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
-        "value": "kimi-k2.5"
-      },
-      {
-        "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
-        "value": "kimi-k2.5"
-      },
-      {
-        "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
-        "value": "kimi-k2.5"
       }
     ]
   }
