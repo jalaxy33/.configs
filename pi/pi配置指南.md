@@ -1,6 +1,6 @@
 # pi安装配置指南
 
-`pi` 是类似于 `claude-code` 的 agent cli 工具，特点是简洁，默认的 system prompt 极少，且可以方便的扩展。
+[`pi`](https://pi.dev/) 是类似于 `claude-code` 的 agent cli 工具，特点是简洁，默认的 system prompt 极少，且可以方便的扩展。
 
 ## 安装
 
