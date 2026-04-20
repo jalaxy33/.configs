@@ -121,12 +121,6 @@ if test -f "$HOME/.cargo/env.fish"
     source "$HOME/.cargo/env.fish"
 end
 
-# nodejs
-set -x FNM_NODE_DIST_MIRROR "https://npmmirror.com/mirrors/node/"
-if command -q fnm
-    fnm env --use-on-cd --shell fish | source
-end
-
 # go
 set -x GOPROXY "https://mirrors.tencent.com/go/"
 
@@ -225,6 +219,15 @@ function clear_claude
     rm_except -y settings.json config.json .credentials.json plugins/ skills/
     cd $WORKDIR
     echo "claude history cleared."
+end
+
+# clean pi history
+function clear_pi
+    set WORKDIR $PWD
+    cd ~/.pi/agent/
+    rm_except -y auth.json settings.json
+    cd $WORKDIR
+    echo "pi history cleared."
 end
 
 # UU加速器

@@ -130,12 +130,6 @@ if [[ -f "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
 
-# nodejs
-export FNM_NODE_DIST_MIRROR="https://npmmirror.com/mirrors/node/"
-if command -v fnm >/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd --shell zsh)"
-fi
-
 # go
 export GOPROXY="https://mirrors.tencent.com/go/"
 
@@ -242,6 +236,15 @@ function clear_claude() {
   rm_except -y settings.json config.json .credentials.json plugins/ skills/
   cd $WORKDIR
   echo "claude history cleared."
+}
+
+# clean pi history
+function clear_pi() {
+  WORKDIR=$PWD
+  cd ~/.pi/agent/
+  rm_except -y auth.json settings.json
+  cd $WORKDIR
+  echo "pi history cleared."
 }
 
 # UU加速器
