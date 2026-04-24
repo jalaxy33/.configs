@@ -1,6 +1,6 @@
 # Deepseek 设置
 
-模型名称：`Deepseek V3.2`
+模型名称：`deepseek-v4-pro`、`deepseek-v4-flash`
 
 接入文档：<https://api-docs.deepseek.com/zh-cn/guides/anthropic_api>
 
@@ -15,13 +15,14 @@ Claude Code 环境变量 `~/.claude/settings.json`：
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
     "ANTHROPIC_AUTH_TOKEN": "<YOUR_API_KEY>",
-    "API_TIMEOUT_MS": "3000000",
+    "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-pro",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-pro",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
-    "ANTHROPIC_MODEL": "deepseek-chat",
-    "ANTHROPIC_SMALL_FAST_MODEL": "deepseek-chat",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-chat",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-chat",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-chat"
+    "CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK": 1,
+    "CLAUDE_CODE_EFFORT_LEVEL": "max"
   }
 }
 ```
@@ -32,7 +33,7 @@ Claude Code 环境变量 `~/.claude/settings.json`：
 
   ```json
   {
-    "claude-code.selectedModel": "deepseek-chat"
+    "claude-code.selectedModel": "deepseek-v4-pro"
   }
   ```
 
@@ -52,32 +53,36 @@ Claude Code 环境变量 `~/.claude/settings.json`：
         "value": "<YOUR_API_KEY>"
       },
       {
-        "name": "API_TIMEOUT_MS",
-        "value": "3000000"
+        "name": "ANTHROPIC_MODEL",
+        "value": "deepseek-v4-pro[1m]"
+      },
+      {
+        "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
+        "value": "deepseek-v4-pro"
+      },
+      {
+        "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
+        "value": "deepseek-v4-pro"
+      },
+      {
+        "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
+        "value": "deepseek-v4-flash"
+      },
+      {
+        "name": "CLAUDE_CODE_SUBAGENT_MODEL",
+        "value": "deepseek-v4-pro"
       },
       {
         "name": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
         "value": "1"
       },
       {
-        "name": "ANTHROPIC_MODEL",
-        "value": "deepseek-chat"
+        "name": "CLAUDE_CODE_DISABLE_NONSTREAMING_FALLBACK",
+        "value": "1"
       },
       {
-        "name": "ANTHROPIC_SMALL_FAST_MODEL",
-        "value": "deepseek-chat"
-      },
-      {
-        "name": "ANTHROPIC_DEFAULT_SONNET_MODEL",
-        "value": "deepseek-chat"
-      },
-      {
-        "name": "ANTHROPIC_DEFAULT_OPUS_MODEL",
-        "value": "deepseek-chat"
-      },
-      {
-        "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
-        "value": "deepseek-chat"
+        "name": "CLAUDE_CODE_EFFORT_LEVEL",
+        "value": "max"
       }
     ]
   }
