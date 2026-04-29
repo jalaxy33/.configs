@@ -23,8 +23,10 @@
 - 远程连接：`Remote Development` 或 `Remote - SSH`
 - 自动拉取 github wiki：`Git WiKi Sync`
 - 还原URL中的中文：`URL Encode`（使用方法：选中文字 > Ctrl+Shift+P > 搜索 "URL-Decode"）
-- AI 助手：`Github Copilot` 或 `Lingma`
-  - 需要一点额外配置的： `Claude Code for VS Code`（配置方法请看 [ClaudeCode 配置指南](../claude/ClaudeCode配置指南.md)）
+- AI 助手：
+  - claude-code：`Claude Code for VS Code`（配置方法请看 [ClaudeCode 配置指南](../claude/ClaudeCode配置指南.md)）
+  - 只能用自家 API 的：`Github Copilot Chat` 或 `Lingma`
+  - 可以自定义 API 的：`Continue`（带自动补全）
 
 ### 代码阅读
 
@@ -53,6 +55,7 @@
 - 运行 Local Server：`Live Preview`
 
 可选：
+
 - Vue语法支持：`Vue (Official)`
 
 ### C/C++
@@ -187,6 +190,29 @@
   "cmake.configureOnEdit": false,
   "cmake.configureOnOpen": false
 }
+```
+
+### Continue自定义模型
+
+continue的配置文件在 `~/.continue/config.yaml`。
+
+continue支持自动补全，一定程度上可以替代 copilot。配置需要给模型赋予 `autocomplete` 的角色：
+
+```yaml
+name: Local Config
+version: 1.0.0
+schema: v1
+models:
+  - name: deepseek-v4-pro
+    provider: deepseek
+    model: deepseek-v4-pro
+    apiKey: <your-api-key>
+    roles:
+      - chat
+      - edit
+      - autocomplete
+      - apply
+      - rerank
 ```
 
 ## 快捷键
