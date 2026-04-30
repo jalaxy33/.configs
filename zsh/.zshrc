@@ -5,7 +5,7 @@
 #  - zoxide, fzf, eza, yazi, lazygit
 #
 # Optional but useful:
-#  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu
+#  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu, task
 
 # Reference:
 #   - https://www.bilibili.com/video/BV1fdTfzeE8X/
@@ -105,6 +105,11 @@ fi
 # task
 if command -v go-task >/dev/null 2>&1 && ! command -v task >/dev/null 2>&1; then
   alias task='go-task'
+fi
+
+# zed
+if command -v zeditor >/dev/null 2>&1 && ! command -v zed >/dev/null 2>&1; then
+  alias zed='zeditor'
 fi
 
 #-- alias functions

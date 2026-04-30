@@ -12,7 +12,7 @@
 #  - zoxide, fzf, eza, yazi
 #
 # Optional but useful:
-#  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu
+#  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu, task
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -96,6 +96,11 @@ end
 # task
 if command -q go-task; and not command -q task
     alias task='go-task'
+end
+
+# zed
+if command -q zeditor; and not command -q zed
+    alias zed='zeditor'
 end
 
 #-- alias functions
