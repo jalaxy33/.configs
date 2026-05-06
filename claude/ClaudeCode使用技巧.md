@@ -133,4 +133,4 @@ Agent skills 是最近很火的一种 AI 工作流概念，能够告诉智能体
 
 除了 skills 和 MCP，现在越来越多的服务商提供了 cli 接口来访问他们的服务，这种方式很灵活且节省 token 消耗，越来越多的 MCP 服务也转向了这种 cli 模式。能用 cli 的话尽量就用 cli。
 
-这里推荐一个叫 [opencli](https://github.com/jackwener/opencli) 的工具，提供了许多网站的 CLI 接口，例如 bilibili、知乎、小红书等。用 npm 安装命令行工具并且安装相应的浏览器插件后即可使用。
+这里推荐一个叫 [opencli](https://github.com/jackwener/opencli) 的工具，提供了许多网站的 CLI 接口，例如 bilibili、知乎、小红书等。用 npm 安装命令行工具并且安装相应的浏览器插件后即可使用，可以查看目前已提供的[接口列表](https://github.com/jackwener/OpenCLI/blob/main/docs/adapters/index.md)。
