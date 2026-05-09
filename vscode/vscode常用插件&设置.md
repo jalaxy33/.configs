@@ -69,7 +69,7 @@
 【必要】
 
 - 常用文件格式化：`Prettier`
-- toml 语法高亮：`Less TOML` 或 `Even Better TOML`
+- toml 语法高亮及格式化：`tombi`
 - 更多 Markdown 功能：`Markdown All in One`
 - 查看 Excel 和 CSV：`Excel Viewer`
 - CSV 彩色显示：`Rainbow CSV`
