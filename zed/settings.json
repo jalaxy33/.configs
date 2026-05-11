@@ -140,7 +140,7 @@
 
   // -- 编辑器 --
   "vim_mode": false,
-  "helix_mode": true,
+  "helix_mode": false,
   "which_key": {
     "delay_ms": 100,
     "enabled": true,
