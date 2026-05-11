@@ -210,6 +210,54 @@ function rm_except() {
   echo "Deletion completed."
 }
 
+# load .env file
+# usage:
+#   load_dotenv                # loads ~/.env
+#   load_dotenv /path/to/.env  # loads custom file
+function load_dotenv() {
+  local file="${1:-$HOME/.env}"
+  if [[ ! -f "$file" ]]; then
+    echo "load_dotenv: $file not found" >&2
+    return 1
+  fi
+
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    # Trim leading/trailing whitespace
+    line="${line#"${line%%[![:space:]]*}"}"
+    line="${line%"${line##*[![:space:]]}"}"
+
+    # Skip empty lines and comments
+    if [[ -z "$line" ]] || [[ "$line" == "#"* ]]; then
+      continue
+    fi
+
+    # Split into key and value
+    local key value
+    key="${line%%=*}"
+    value="${line#*=}"
+
+    # Trim whitespace from key
+    key="${key#"${key%%[![:space:]]*}"}"
+    key="${key%"${key##*[![:space:]]}"}"
+
+    # Skip if key is empty
+    if [[ -z "$key" ]]; then
+      continue
+    fi
+
+    # Optional: strip surrounding quotes from value
+    if [[ "$value" =~ ^\'(.*)\'$ ]]; then
+      value="${BASH_REMATCH[1]}"
+    elif [[ "$value" =~ ^\"(.*)\"$ ]]; then
+      value="${BASH_REMATCH[1]}"
+    fi
+
+    # Export variable to environment
+    export "$key"="$value"
+  done <"$file"
+}
+load_dotenv
+
 # proxy functions
 function set_proxy() {
   proxy_url="127.0.0.1:7890"
