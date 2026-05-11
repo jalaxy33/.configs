@@ -100,7 +100,7 @@ end
 
 # zed
 if command -q zeditor; and not command -q zed
-    alias zed='zeditor'
+    alias zed='zeditor --classic'
 end
 
 #-- alias functions
