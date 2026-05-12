@@ -63,24 +63,9 @@
       "api_url": "https://api.deepseek.com/beta/completions",
     },
   },
-  // 设置agent ACP
-  "agent_servers": {
-    "kimi": {
-      "type": "registry"
-    },
-    "pi-acp": {
-      "type": "registry",
-    },
-    "codex-acp": {
-      "type": "registry",
-    },
-    "claude-acp": {
-      "type": "registry",
-      "env": {
-        "CLAUDE_CODE_EXECUTABLE": "/usr/bin/claude",
-      },
-    },
-  },
+  // 设置外部agent ACP
+  // 目前还不太好用
+  "agent_servers": {},
   // agent面板
   "agent": {
     "inline_assistant_model": {
