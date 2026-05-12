@@ -21,7 +21,15 @@
     },
   },
 
-  // -- My configs --
+  //-- Delete conflict keybindings
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-b": "vim::PageUp",
+    },
+  },
+
+  //-- My keybindings
 
   // Toggle inlay hint
   {

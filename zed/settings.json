@@ -63,19 +63,22 @@
       "api_url": "https://api.deepseek.com/beta/completions",
     },
   },
-  // 设置claude-code
+  // 设置agent ACP
   "agent_servers": {
-    "pi-acp": {
+    "kimi": {
       "type": "registry"
     },
+    "pi-acp": {
+      "type": "registry",
+    },
     "codex-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "claude-acp": {
       "type": "registry",
       "env": {
-        "CLAUDE_CODE_EXECUTABLE": "/usr/bin/claude"
-      }
+        "CLAUDE_CODE_EXECUTABLE": "/usr/bin/claude",
+      },
     },
   },
   // agent面板
@@ -155,7 +158,6 @@
   },
   "completion_menu_scrollbar": "auto",
   "format_on_save": "off",
-  "cli_default_open_behavior": "new_window",
   "colorize_brackets": true,
   "ui_font_size": 17.0,
   "buffer_font_size": 16.0,
@@ -166,6 +168,7 @@
     "metrics": false,
   },
   "auto_update": false,
+  "cli_default_open_behavior": "new_window",
 
   // -- 外观主题 --
   "icon_theme": {
