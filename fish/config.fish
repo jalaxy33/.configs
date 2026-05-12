@@ -298,8 +298,14 @@ end
 # clean pi history
 function clear_pi
     set WORKDIR $PWD
+    # clear ~/.pi cache
+    cd ~/.pi
+    rm_except -y agent/
+    echo ""
+    # clear ~/.pi/agent cache
     cd ~/.pi/agent/
     rm_except -y auth.json settings.json
+    # finish
     cd $WORKDIR
     echo "pi history cleared."
 end
