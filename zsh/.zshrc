@@ -306,7 +306,7 @@ function clear_claude() {
     rm_except -y settings.json config.json .credentials.json plugins/ skills/
     cd $WORKDIR
     # overwrite .claude.json
-    echo '{"hasCompletedOnboarding": true}' >~/.claude.json
+    echo '{"hasCompletedOnboarding": true}' >|~/.claude.json
     echo 'Overwrite ~/.claude.json'
     # finish
     echo "claude history cleared."

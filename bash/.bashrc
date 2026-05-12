@@ -227,25 +227,13 @@ fi
 # go
 export GOPROXY="https://mirrors.tencent.com/go/"
 
-# bun
-export BUN_BIN_DIR="$HOME/.bun/bin"
-case ":$PATH:" in
-*":$BUN_BIN_DIR:"*) ;;
-*) export PATH="$BUN_BIN_DIR:$PATH" ;;
-esac
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+prepend_path $PNPM_HOME
 
 # bun
 export BUN_BIN_DIR="$HOME/.bun/bin"
-case ":$PATH:" in
-*":$BUN_BIN_DIR:"*) ;;
-*) export PATH="$BUN_BIN_DIR:$PATH" ;;
-esac
+prepend_path $BUN_BIN_DIR
 
 #-- functions
 
@@ -329,7 +317,7 @@ function clear_claude() {
     rm_except -y settings.json config.json .credentials.json plugins/ skills/
     cd $WORKDIR
     # overwrite .claude.json
-    echo '{"hasCompletedOnboarding": true}' >~/.claude.json
+    echo '{"hasCompletedOnboarding": true}' >|~/.claude.json
     echo 'Overwrite ~/.claude.json'
     # finish
     echo "claude history cleared."
