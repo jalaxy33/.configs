@@ -38,9 +38,92 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+#-- helper functions
+
+# Prepend directories to PATH if not already present
+function prepend_path() {
+    local dir
+    for dir in "$@"; do
+        case ":$PATH:" in
+        *":$dir:"*) ;;
+        *) export PATH="$dir:$PATH" ;;
+        esac
+    done
+}
+
+# rm_except: remove all files and directories in the current directory except specified ones
+function rm_except() {
+    local yes=0
+    local dry=0
+    local -a keep=()
+
+    # Parse command line arguments
+    for arg in "$@"; do
+        if [[ "$arg" == "-y" || "$arg" == "--yes" ]]; then
+            yes=1
+        elif [[ "$arg" == "--dry-run" ]]; then
+            dry=1
+        else
+            # Clean leading ./ and trailing /
+            clean=${arg#./}
+            clean=${clean%/}
+            [[ -n "$clean" ]] && keep+=("$clean")
+        fi
+    done
+
+    # Show usage if no items to keep are provided
+    if [ ${#keep[@]} -eq 0 ]; then
+        echo "Usage: rm_except [-y|--yes] [--dry-run] item1 [item2 ...]"
+        echo "       Supports brace expansion: rm_except ./{file1,file2,dir}"
+        echo "       Also supports paths: rm_except subdir/keep.txt"
+        echo "Example: rm_except important.txt myproject .git"
+        echo "         rm_except -y ./{.git,README.md,docs}"
+        return 1
+    fi
+
+    echo "=== Items to KEEP ==="
+    printf '  %s\n' "${keep[@]}"
+
+    echo -e "\n=== Items that WILL BE DELETED ==="
+
+    # Build exclusion conditions
+    local -a exclude=()
+    for k in "${keep[@]}"; do
+        if [[ "$k" == */* ]]; then
+            exclude+=(-o -wholename "./$k")
+        else
+            exclude+=(-o -name "$k")
+        fi
+    done
+
+    # Show what will be deleted
+    find . -mindepth 1 -maxdepth 1 ! \( "${exclude[@]:1}" \) -print | sort
+
+    # Dry-run mode: only show preview, do not delete anything
+    if [ $dry -eq 1 ]; then
+        echo -e "\nDry-run completed. No files were deleted."
+        return 0
+    fi
+
+    # Ask for confirmation unless -y is used
+    if [ $yes -eq 0 ]; then
+        read -p "Confirm deletion? (y/N): " confirm
+        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+            echo "Cancelled."
+            return 0
+        fi
+    else
+        echo "Force mode (-y): proceeding with deletion..."
+    fi
+
+    # Perform the actual deletion
+    find . -mindepth 1 -maxdepth 1 ! \( "${exclude[@]:1}" \) -exec rm -rf {} +
+    echo "Deletion completed."
+}
+
 #-- try to activate homebrew
 if [[ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 #-- init apps
@@ -50,16 +133,16 @@ eval "$(fzf --bash)"
 
 # config yazi
 function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  command yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd <"$tmp"
-  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-  rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd <"$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
 }
 
 # jujutsu completion
 if command -v jj >/dev/null 2>&1; then
-  source <(COMPLETE=bash jj)
+    source <(COMPLETE=bash jj)
 fi
 
 #-- aliases
@@ -97,34 +180,34 @@ alias catfish="cat $FISH_CONFIG"
 alias batfish="bat $FISH_CONFIG"
 
 if command -v niri >/dev/null 2>&1; then
-  NIRI_CONFIG="~/.config/niri/config.kdl"
-  alias viniri="vi $NIRI_CONFIG"
-  alias nvniri="nv $NIRI_CONFIG"
-  alias hxniri="hx $NIRI_CONFIG"
-  alias catniri="cat $NIRI_CONFIG"
-  alias batniri="bat $NIRI_CONFIG"
+    NIRI_CONFIG="~/.config/niri/config.kdl"
+    alias viniri="vi $NIRI_CONFIG"
+    alias nvniri="nv $NIRI_CONFIG"
+    alias hxniri="hx $NIRI_CONFIG"
+    alias catniri="cat $NIRI_CONFIG"
+    alias batniri="bat $NIRI_CONFIG"
 
-  NIRI_DIR="~/.config/niri/"
-  alias cdniri="cd $NIRI_DIR"
+    NIRI_DIR="~/.config/niri/"
+    alias cdniri="cd $NIRI_DIR"
 fi
 
 # task
 if command -v go-task >/dev/null 2>&1 && ! command -v task >/dev/null 2>&1; then
-  alias task='go-task'
+    alias task='go-task'
 fi
 
 # zed
 if command -v zeditor >/dev/null 2>&1 && ! command -v zed >/dev/null 2>&1; then
-  alias zed='zeditor --classic'
+    alias zed='zeditor --classic'
 fi
 
 #-- alias functions
 function ls() {
-  eza --icons --git -a $@
+    eza --icons --git -a $@
 }
 
 function rsyncp() {
-  rsync -alvhP $@
+    rsync -alvhP $@
 }
 
 #-- lang & mirrors
@@ -138,181 +221,145 @@ export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 if [[ -f "$HOME/.cargo/env" ]]; then
-  source "$HOME/.cargo/env"
+    source "$HOME/.cargo/env"
 fi
 
 # go
 export GOPROXY="https://mirrors.tencent.com/go/"
 
+# bun
+export BUN_BIN_DIR="$HOME/.bun/bin"
+case ":$PATH:" in
+*":$BUN_BIN_DIR:"*) ;;
+*) export PATH="$BUN_BIN_DIR:$PATH" ;;
+esac
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# bun
+export BUN_BIN_DIR="$HOME/.bun/bin"
+case ":$PATH:" in
+*":$BUN_BIN_DIR:"*) ;;
+*) export PATH="$BUN_BIN_DIR:$PATH" ;;
+esac
+
 #-- functions
-
-# rm_except: remove all files and directories in the current directory except specified ones
-function rm_except() {
-  local yes=0
-  local dry=0
-  local -a keep=()
-
-  # Parse command line arguments
-  for arg in "$@"; do
-    if [[ "$arg" == "-y" || "$arg" == "--yes" ]]; then
-      yes=1
-    elif [[ "$arg" == "--dry-run" ]]; then
-      dry=1
-    else
-      # Clean leading ./ and trailing /
-      clean=${arg#./}
-      clean=${clean%/}
-      [[ -n "$clean" ]] && keep+=("$clean")
-    fi
-  done
-
-  # Show usage if no items to keep are provided
-  if [ ${#keep[@]} -eq 0 ]; then
-    echo "Usage: rm_except [-y|--yes] [--dry-run] item1 [item2 ...]"
-    echo "       Supports brace expansion: rm_except ./{file1,file2,dir}"
-    echo "       Also supports paths: rm_except subdir/keep.txt"
-    echo "Example: rm_except important.txt myproject .git"
-    echo "         rm_except -y ./{.git,README.md,docs}"
-    return 1
-  fi
-
-  echo "=== Items to KEEP ==="
-  printf '  %s\n' "${keep[@]}"
-
-  echo -e "\n=== Items that WILL BE DELETED ==="
-
-  # Build exclusion conditions
-  local -a exclude=()
-  for k in "${keep[@]}"; do
-    if [[ "$k" == */* ]]; then
-      exclude+=(-o -wholename "./$k")
-    else
-      exclude+=(-o -name "$k")
-    fi
-  done
-
-  # Show what will be deleted
-  find . -mindepth 1 -maxdepth 1 ! \( "${exclude[@]:1}" \) -print | sort
-
-  # Dry-run mode: only show preview, do not delete anything
-  if [ $dry -eq 1 ]; then
-    echo -e "\nDry-run completed. No files were deleted."
-    return 0
-  fi
-
-  # Ask for confirmation unless -y is used
-  if [ $yes -eq 0 ]; then
-    read -p "Confirm deletion? (y/N): " confirm
-    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-      echo "Cancelled."
-      return 0
-    fi
-  else
-    echo "Force mode (-y): proceeding with deletion..."
-  fi
-
-  # Perform the actual deletion
-  find . -mindepth 1 -maxdepth 1 ! \( "${exclude[@]:1}" \) -exec rm -rf {} +
-  echo "Deletion completed."
-}
 
 # load .env file
 # usage:
 #   load_dotenv                # loads ~/.env
 #   load_dotenv /path/to/.env  # loads custom file
 function load_dotenv() {
-  local file="${1:-$HOME/.env}"
-  if [[ ! -f "$file" ]]; then
-    echo "load_dotenv: $file not found" >&2
-    return 1
-  fi
-
-  while IFS= read -r line || [[ -n "$line" ]]; do
-    # Trim leading/trailing whitespace
-    line="${line#"${line%%[![:space:]]*}"}"
-    line="${line%"${line##*[![:space:]]}"}"
-
-    # Skip empty lines and comments
-    if [[ -z "$line" ]] || [[ "$line" == "#"* ]]; then
-      continue
+    local file="${1:-$HOME/.env}"
+    if [[ ! -f "$file" ]]; then
+        echo "load_dotenv: $file not found" >&2
+        return 1
     fi
 
-    # Split into key and value
-    local key value
-    key="${line%%=*}"
-    value="${line#*=}"
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        # Trim leading/trailing whitespace
+        line="${line#"${line%%[![:space:]]*}"}"
+        line="${line%"${line##*[![:space:]]}"}"
 
-    # Trim whitespace from key
-    key="${key#"${key%%[![:space:]]*}"}"
-    key="${key%"${key##*[![:space:]]}"}"
+        # Skip empty lines and comments
+        if [[ -z "$line" ]] || [[ "$line" == "#"* ]]; then
+            continue
+        fi
 
-    # Skip if key is empty
-    if [[ -z "$key" ]]; then
-      continue
-    fi
+        # Split into key and value
+        local key value
+        key="${line%%=*}"
+        value="${line#*=}"
 
-    # Optional: strip surrounding quotes from value
-    if [[ "$value" =~ ^\'(.*)\'$ ]]; then
-      value="${BASH_REMATCH[1]}"
-    elif [[ "$value" =~ ^\"(.*)\"$ ]]; then
-      value="${BASH_REMATCH[1]}"
-    fi
+        # Trim whitespace from key
+        key="${key#"${key%%[![:space:]]*}"}"
+        key="${key%"${key##*[![:space:]]}"}"
 
-    # Export variable to environment
-    export "$key"="$value"
-  done <"$file"
+        # Skip if key is empty
+        if [[ -z "$key" ]]; then
+            continue
+        fi
+
+        # Optional: strip surrounding quotes from value
+        if [[ "$value" =~ ^\'(.*)\'$ ]]; then
+            value="${BASH_REMATCH[1]}"
+        elif [[ "$value" =~ ^\"(.*)\"$ ]]; then
+            value="${BASH_REMATCH[1]}"
+        fi
+
+        # Export variable to environment
+        export "$key"="$value"
+    done <"$file"
 }
-load_dotenv 
+load_dotenv
 
 # proxy functions
 function set_proxy() {
-  proxy_url="127.0.0.1:7890"
-  http_proxy="http://$proxy_url"
+    proxy_url="127.0.0.1:7890"
+    http_proxy="http://$proxy_url"
 
-  echo "proxy_url: $proxy_url"
+    echo "proxy_url: $proxy_url"
 
-  export ALL_PROXY=$http_proxy
-  export HTTP_PROXY=$http_proxy
-  export HTTPS_PROXY=$http_proxy
+    export ALL_PROXY=$http_proxy
+    export HTTP_PROXY=$http_proxy
+    export HTTPS_PROXY=$http_proxy
 
-  git config --global http.proxy $http_proxy
-  git config --global https.proxy $http_proxy
+    git config --global http.proxy $http_proxy
+    git config --global https.proxy $http_proxy
 }
 
 function unset_proxy() {
-  unset ALL_PROXY
-  unset HTTP_PROXY
-  unset HTTPS_PROXY
+    unset ALL_PROXY
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
 
-  git config --global --unset http.proxy
-  git config --global --unset https.proxy
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
 }
 
 # clean claude-code history
 function clear_claude() {
-  WORKDIR=$PWD
-  cd ~/.claude
-  rm_except -y settings.json config.json .credentials.json plugins/ skills/
-  cd $WORKDIR
-  echo "claude history cleared."
+    # clear cache directory
+    set WORKDIR $PWD
+    cd ~/.claude
+    rm_except -y settings.json config.json .credentials.json plugins/ skills/
+    cd $WORKDIR
+    # overwrite .claude.json
+    echo '{"hasCompletedOnboarding": true}' >~/.claude.json
+    echo 'Overwrite ~/.claude.json'
+    # finish
+    echo "claude history cleared."
 }
 
 # clean pi history
 function clear_pi() {
-  WORKDIR=$PWD
-  cd ~/.pi/agent/
-  rm_except -y auth.json settings.json
-  cd $WORKDIR
-  echo "pi history cleared."
+    WORKDIR=$PWD
+    cd ~/.pi/agent/
+    rm_except -y auth.json settings.json
+    cd $WORKDIR
+    echo "pi history cleared."
+}
+
+# clean codex history
+function clear_codex() {
+    set WORKDIR $PWD
+    cd ~/.codex
+    rm_except -y auth.json config.toml skills/
+    cd $WORKDIR
+    echo "codex history cleared."
 }
 
 # UU加速器
 function start_uu() {
-  sudo systemctl start uuplugin
-  echo "UU加速器已开启"
+    sudo systemctl start uuplugin
+    echo "UU加速器已开启"
 }
 
 function stop_uu() {
-  sudo systemctl stop uuplugin
-  echo "UU加速器已关闭"
+    sudo systemctl stop uuplugin
+    echo "UU加速器已关闭"
 }

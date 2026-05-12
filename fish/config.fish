@@ -21,6 +21,77 @@ end
 set fish_greeting ""
 #set -p PATH ~/.local/bin
 
+#-- helper functions
+
+function prepend_path -d "Prepend a directory to PATH if not already present"
+    for dir in $argv
+        if not contains $dir $PATH
+            set -gx PATH $dir $PATH
+        end
+    end
+end
+
+function rm_except --description 'Safe delete all except specified items'
+    set -l yes 0
+    set -l dry 0
+    set -l keep
+
+    for arg in $argv
+        if test "$arg" = -y -o "$arg" = --yes
+            set yes 1
+        else if test "$arg" = --dry-run
+            set dry 1
+        else
+            set clean (string replace -r '^\./' '' -- $arg | string replace -r '/$' '')
+            if test -n "$clean"
+                set -a keep $clean
+            end
+        end
+    end
+
+    if test (count $keep) -eq 0
+        echo "Usage: rm_except [-y|--yes] [--dry-run] item1 [item2 ...]"
+        echo "       Example: rm_except ./{.git,important.txt,myproject} subdir/keep.log"
+        return 1
+    end
+
+    echo "=== Items to KEEP ==="
+    for k in $keep
+        echo "  $k"
+    end
+
+    echo -e "\n=== Items that WILL BE DELETED ==="
+
+    set -l exclude
+    for k in $keep
+        if string match -q '*/*' -- $k
+            set -a exclude -o -wholename "./$k"
+        else
+            set -a exclude -o -name "$k"
+        end
+    end
+
+    find . -mindepth 1 -maxdepth 1 ! \( $exclude[2..] \) -print | sort
+
+    if test $dry -eq 1
+        echo -e "\nDry-run completed. No files were deleted."
+        return 0
+    end
+
+    if test $yes -eq 0
+        read --prompt-str "Confirm deletion? (y/N): " confirm
+        if not string match -qi y -- $confirm
+            echo "Cancelled."
+            return 0
+        end
+    else
+        echo "Force mode (-y): proceeding..."
+    end
+
+    find . -mindepth 1 -maxdepth 1 ! \( $exclude[2..] \) -exec rm -rf {} +
+    echo "Deletion completed."
+end
+
 #-- try to activate homebrew
 if command -q /home/linuxbrew/.linuxbrew/bin/brew
     eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -129,69 +200,15 @@ end
 # go
 set -x GOPROXY "https://mirrors.tencent.com/go/"
 
+# pnpm
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+prepend_path $PNPM_HOME
+
+# bun
+set -gx BUN_BIN_DIR "$HOME/.bun/bin"
+prepend_path $BUN_BIN_DIR
+
 #-- functions
-
-# rm_except: remove all files and directories in the current directory except specified ones
-function rm_except --description 'Safe delete all except specified items'
-    set -l yes 0
-    set -l dry 0
-    set -l keep
-
-    for arg in $argv
-        if test "$arg" = -y -o "$arg" = --yes
-            set yes 1
-        else if test "$arg" = --dry-run
-            set dry 1
-        else
-            set clean (string replace -r '^\./' '' -- $arg | string replace -r '/$' '')
-            if test -n "$clean"
-                set -a keep $clean
-            end
-        end
-    end
-
-    if test (count $keep) -eq 0
-        echo "Usage: rm_except [-y|--yes] [--dry-run] item1 [item2 ...]"
-        echo "       Example: rm_except ./{.git,important.txt,myproject} subdir/keep.log"
-        return 1
-    end
-
-    echo "=== Items to KEEP ==="
-    for k in $keep
-        echo "  $k"
-    end
-
-    echo -e "\n=== Items that WILL BE DELETED ==="
-
-    set -l exclude
-    for k in $keep
-        if string match -q '*/*' -- $k
-            set -a exclude -o -wholename "./$k"
-        else
-            set -a exclude -o -name "$k"
-        end
-    end
-
-    find . -mindepth 1 -maxdepth 1 ! \( $exclude[2..] \) -print | sort
-
-    if test $dry -eq 1
-        echo -e "\nDry-run completed. No files were deleted."
-        return 0
-    end
-
-    if test $yes -eq 0
-        read --prompt-str "Confirm deletion? (y/N): " confirm
-        if not string match -qi y -- $confirm
-            echo "Cancelled."
-            return 0
-        end
-    else
-        echo "Force mode (-y): proceeding..."
-    end
-
-    find . -mindepth 1 -maxdepth 1 ! \( $exclude[2..] \) -exec rm -rf {} +
-    echo "Deletion completed."
-end
 
 # load .env file
 # usage:
@@ -266,10 +283,15 @@ end
 
 # clean claude-code history
 function clear_claude
+    # clear cache directory
     set WORKDIR $PWD
     cd ~/.claude
     rm_except -y settings.json config.json .credentials.json plugins/ skills/
     cd $WORKDIR
+    # overwrite .claude.json
+    echo '{"hasCompletedOnboarding": true}' >~/.claude.json
+    echo 'Overwrite ~/.claude.json'
+    # finish
     echo "claude history cleared."
 end
 
@@ -280,6 +302,15 @@ function clear_pi
     rm_except -y auth.json settings.json
     cd $WORKDIR
     echo "pi history cleared."
+end
+
+# clean codex history
+function clear_codex
+    set WORKDIR $PWD
+    cd ~/.codex
+    rm_except -y auth.json config.toml skills/
+    cd $WORKDIR
+    echo "codex history cleared."
 end
 
 # UU加速器
