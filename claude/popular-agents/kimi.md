@@ -1,0 +1,74 @@
+# kimi 配置
+
+参考文档：
+
+- [在编程工具中使用 Kimi](https://platform.kimi.com/docs/guide/agent-support)
+- [在第三方 Coding Agent 中使用 kimi-code](https://www.kimi.com/code/docs/third-party-tools/other-coding-agents.html)
+
+👉 是否有 coding plan：是
+
+## 配置 API key
+
+### （推荐）用cc-switch管理配置
+
+cc-switch的 Claude 主界面 > 右上角选择加号 > 提供商选择 `Kimi`（非会员） 或者 `Kimi For Coding`（会员） > 填写「API Key」，指定模型 > 右下角「添加」 > 主界面选择「启用」。
+
+### 手动配置
+
+首先需要确保清除以下 Anthropic 相关的环境变量，以免影响其他 API 的正常使用：
+
+```sh
+unset ANTHROPIC_AUTH_TOKEN
+unset ANTHROPIC_BASE_URL
+```
+
+> 每种配置方式本质上都是设置环境变量，用其中一种方式即可，具体需要设置哪些环境变量请参考文档。
+
+#### 方式一：修改配置文件
+
+编辑配置文件 `~/.claude/settings.json`（windows 是 `用户目录/.claude/settings.json`），添加或修改 `env` 字段的内容：
+
+```json
+# 非会员
+{
+  # `YOUR_API_KEY` 需替换成你的 API Key
+  # 环境变量 `ANTHROPIC_AUTH_TOKEN` 和 `ANTHROPIC_BASE_URL` 优先级高于配置文件
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.moonshot.cn/anthropic",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "kimi-k2.5",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "kimi-k2.5",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "kimi-k2.5",
+    "ANTHROPIC_MODEL": "kimi-k2.5",
+  }
+}
+
+# kimi-code 订阅计划
+{
+  # `YOUR_API_KEY` 需替换成你的 API Key
+  # 环境变量 `ANTHROPIC_AUTH_TOKEN` 和 `ANTHROPIC_BASE_URL` 优先级高于配置文件
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.kimi.com/coding/",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY",
+  }
+}
+```
+
+#### 方式二：设置环境变量
+
+前一种方式的等价 bash/zsh 命令：
+
+```sh
+# 非会员
+# `YOUR_API_KEY` 需换成你的 API Key
+export ANTHROPIC_BASE_URL="https://api.moonshot.cn/anthropic"
+export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"
+export ANTHROPIC_MODEL="kimi-k2.5"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="kimi-k2.5"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="kimi-k2.5"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="kimi-k2.5"
+
+# kimi-code 订阅计划
+export ANTHROPIC_BASE_URL="https://api.kimi.com/coding/"
+export ANTHROPIC_AUTH_TOKEN="YOUR_API_KEY"
+```
