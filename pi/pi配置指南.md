@@ -64,6 +64,14 @@ bun add -g @earendil-works/pi-coding-agent
   set -x KIMI_API_KEY "sk-cp-..."
   ```
 
+## 使用skills
+
+pi 能自动识别 `.agents/skills` 目录下的 skills。
+
+如果同时使用 claude，建议将 skills 统一放在 `~/.agents/skills/` 目录下，然后软链接到 `~/.claude/skills/` 中。
+
+> 这个操作可以在 cc-switch 设置：「设置」>「通用」> 「Skills存储位置」
+
 ## 安装扩展
 
 `pi` 是极简的 agent cli 工具，只提供最简单的功能。但是扩展性极强，可以在[扩展商店](https://pi.dev/packages)里查看可用的扩展以及对应的安装方式。
