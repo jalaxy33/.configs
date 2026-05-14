@@ -28,6 +28,18 @@
       "ctrl-b": "vim::PageUp",
     },
   },
+  {
+    "context": "!Terminal",
+    "unbind": {
+      "ctrl-shift-c": "collab_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && extension == md",
+    "unbind": {
+      "ctrl-shift-v": "markdown::OpenPreview"
+    }
+  },
 
   //-- My keybindings
 
@@ -44,5 +56,12 @@
     "bindings": {
       "ctrl-s": "workspace::Save",
     },
+  },
+  // Copy
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-c": "editor::Copy"
+    }
   },
 ]

@@ -15,4 +15,6 @@
 
 ## 能力扩展
 
-- [MCP服务器推荐](./docs/MCP推荐.md)
+- [MCP服务器推荐](./docs/mcp推荐.md)
+- [plugin插件推荐](./docs/plugin插件推荐.md)
+- [skills推荐](./docs/skills推荐.md)
