@@ -93,3 +93,4 @@ pi uninstall <extension-name>
 - [`pi-web-access`](https://pi.dev/packages/pi-web-access)：联网搜索
 - [`@plannotator/pi-extension`](https://pi.dev/packages/@plannotator/pi-extension)：计划模式
 - [`@gotgenes/pi-permission-system`](https://pi.dev/packages/@gotgenes/pi-permission-system)：提供类似于claude的权限管理模式，pi 默认是 `allow-edits` 的模式。
+- [context-mode](https://pi.dev/packages/context-mode): 节约上下文
