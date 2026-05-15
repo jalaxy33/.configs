@@ -2,7 +2,7 @@
 #
 # Necessary:
 #  - zsh, zimfw, vim(or gvim)
-#  - zoxide, fzf, eza, yazi, lazygit
+#  - zoxide, fzf, eza, yazi, lazygit, jq
 #
 # Optional but useful:
 #  - bat, helix, rsync, neovim, fastfetch, lazygit, jujutsu, task
@@ -306,8 +306,14 @@ function clear_claude() {
     rm_except -y settings.json config.json .credentials.json plugins/ skills/
     cd $WORKDIR
     # overwrite .claude.json
-    echo '{"hasCompletedOnboarding": true}' >|~/.claude.json
-    echo 'Overwrite ~/.claude.json'
+    if command -v jq >/dev/null 2>&1; then
+        jq '{hasCompletedOnboarding, mcpServers}' ~/.claude.json >~/.claude.tmp.json
+        mv ~/.claude.tmp.json ~/.claude.json
+        echo 'Overwrite ~/.claude.json'
+    else
+        echo "command $(jq) not found. ~/.claude.json was unchanged."
+    fi
+
     # finish
     echo "claude history cleared."
 }
