@@ -272,7 +272,9 @@ function load_dotenv() {
         typeset -gx "$key"="$value" 2>/dev/null
     done <"$file"
 }
-load_dotenv
+if [[ -f "~/.env" ]]; then
+    load_dotenv
+fi
 
 # proxy functions
 function set_proxy() {

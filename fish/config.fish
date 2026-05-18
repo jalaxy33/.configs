@@ -255,7 +255,9 @@ function load_dotenv --description "Load environment variables from .env file"
         set -gx "$key" "$value"
     end <"$file"
 end
-load_dotenv
+if test -e ~/.env
+    load_dotenv
+end
 
 # proxy functions
 function set_proxy
@@ -290,7 +292,7 @@ function clear_claude
     cd $WORKDIR
     # overwrite .claude.json
     if command -q jq
-        jq '{hasCompletedOnboarding, mcpServers}' ~/.claude.json > ~/.claude.tmp.json
+        jq '{hasCompletedOnboarding, mcpServers}' ~/.claude.json >~/.claude.tmp.json
         mv ~/.claude.tmp.json ~/.claude.json
         echo 'Overwrite ~/.claude.json'
     else

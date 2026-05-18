@@ -283,7 +283,9 @@ function load_dotenv() {
         export "$key"="$value"
     done <"$file"
 }
-load_dotenv
+if [[ -f "~/.env" ]]; then
+    load_dotenv
+fi
 
 # proxy functions
 function set_proxy() {
