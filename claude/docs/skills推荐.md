@@ -27,6 +27,35 @@ skills来源：
 
 ## 我在用的一些skills
 
+### OpenSpec
+
+这是一个 CLI 工具，提供了一套规范驱动开发（SDD）的工作流，用于解决AI编程中需求混乱、输出不可控的问题。用法参考[文档](https://github.com/Fission-AI/OpenSpec)。
+
+安装方法：
+
+```sh
+npm install -g @fission-ai/openspec@latest
+```
+
+使用方法：
+
+1. 进入工程目录，初始化：
+
+   ```sh
+   cd your-project
+   openspec init
+   ```
+
+   根据提示进行操作，选择 `claude`，之后会在项目 `.claude` 目录下创建相关的 skills。
+
+2. 然后告诉 Agent 你的需求：
+
+   ```sh
+   /opsx:propose <what-you-want-to-build>
+   ```
+
+   之后根据提示进行操作。例如同意计划，进入实施阶段：`/opsx:approve`
+
 ### opencli
 
 这是一个 CLI 工具，可以让网站、浏览器会话、Electron 应用和本地工具转化为人类和 agent 访问的命令行接口，agent 可以用这个工具来从 bilibili、知乎、小红书等网站获取信息。
