@@ -94,7 +94,7 @@ pi uninstall <extension-name>
 - [`context-mode`](https://pi.dev/packages/context-mode): 节约上下文
 - [`@juicesharp/rpiv-ask-user-question`](https://pi.dev/packages/@juicesharp/rpiv-ask-user-question)：向用户询问具体细节
 - [`@juicesharp/rpiv-todo`](https://pi.dev/packages/@juicesharp/rpiv-todo)：todo 列表渲染
-- [`@juicesharp/rpiv-btw`]: 提供 `/btw` 命令
+- [`@juicesharp/rpiv-btw`](https://pi.dev/packages/@juicesharp/rpiv-btw): 提供 `/btw` 命令
 
 有用但是不太好用的扩展：
 - [`@plannotator/pi-extension`](https://pi.dev/packages/@plannotator/pi-extension)：计划模式
