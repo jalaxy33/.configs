@@ -34,8 +34,7 @@ plugin 是将一系列 skills、MCP、hooks 打包在一起的工具集合。注
 
 仓库名：[anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official)
 
-- [`superpowers`](https://github.com/obra/superpowers)：是一套 skills 集合，提供了一系列增强工作流程的能力
-- `context7`：自动集成 context7 MCP 服务器，也可以用 `ctx7` cli+skills 替代
+- [`superpowers`](https://github.com/obra/superpowers) **(推荐)** ：是一套 skills 集合，提供了一系列增强工作流程的能力
 - 不同编程语言的 LSP 插件，如 `rust-analyzer-lsp`
 
 ## 第三方插件
