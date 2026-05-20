@@ -2,14 +2,18 @@
 
 Skills 是一种可复用指令集，用来指导特定任务的执行方式。其核心设计理念是「渐进式披露」和「按需加载」，避免一次性将过多内容塞入上下文窗口。
 
-Claude 在相关时使用 skills，或者你可以使用 `/skill-name` 直接调用一个。
+Claude 在需要时自动使用 skills，或者你可以使用 `/skill-name` 手动触发。
 
 一个相关的概念是 CLI 命令行工具，CLI 为 agent 和人类提供了统一的交互界面。CLI 提供外部工具接口，skills 规范了工作流程。目前，CLI+skills 的模式逐渐取代 MCP，成为主流的外部工具调用模式。利用 skills 渐进式披露的特点，规避了 MCP 上下文占用多的弊端。
 
 一般安装方法：用 `npx skills` 命令或者 cc-switch
 
 ```sh
-npx skills add https://<repo-url> --skill <skill-name>
+# 加上 -g 参数表示用户全局安装
+npx skills add https://<repo-url> --skill <skill-name> [-g]
+
+# 另一种方式，从 github 的 <owner>/<repo-name> 仓库安装
+npx skills add <owner>/<repo-name> --skill <skill-name> [-g]
 ```
 
 skills来源：
@@ -60,7 +64,7 @@ npm install -g @fission-ai/openspec@latest
 
    之后根据提示进行操作。例如同意计划，进入实施阶段：`/opsx:approve`
 
-### 真实信息获取类
+### 信息获取类
 
 #### opencli
 
