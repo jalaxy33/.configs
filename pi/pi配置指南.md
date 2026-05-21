@@ -86,17 +86,22 @@ pi install <extension-name>
 pi uninstall <extension-name>
 ```
 
-我在用的一些扩展：
+## 我在用的一些扩展
 
-- [`pi-subagents`](https://pi.dev/packages/pi-subagents)：创建subagent
+### 必要功能
+
 - [`pi-mcp-adapter`](https://pi.dev/packages/pi-mcp-adapter)：MCP适配器
-- [`pi-permission-layers`](https://pi.dev/packages/pi-permission-layers)：pi本身没有权限管理，默认允许一切操作。这个插件提供了类似于claude的权限管理功能。
-- [`context-mode`](https://pi.dev/packages/context-mode): 节约上下文
+- [`pi-subagents`](https://pi.dev/packages/pi-subagents)：创建subagent
+- [`@plannotator/pi-extension`](https://pi.dev/packages/@plannotator/pi-extension)：提供计划模式。这个插件可以对计划文档进行划线批注。
 - [`@juicesharp/rpiv-ask-user-question`](https://pi.dev/packages/@juicesharp/rpiv-ask-user-question)：向用户询问具体细节
 - [`@juicesharp/rpiv-todo`](https://pi.dev/packages/@juicesharp/rpiv-todo)：todo 列表渲染
-- [`@juicesharp/rpiv-btw`](https://pi.dev/packages/@juicesharp/rpiv-btw): 提供 `/btw` 命令
 
-有用但是不太好用的扩展：
-- [`@plannotator/pi-extension`](https://pi.dev/packages/@plannotator/pi-extension)：计划模式
+### 能力拓展
+
 - [`pi-web-access`](https://pi.dev/packages/pi-web-access)：联网搜索
+- [`@juicesharp/rpiv-btw`](https://pi.dev/packages/@juicesharp/rpiv-btw): 提供 `/btw` 命令。可以在主要任务执行过程中问一些无关的问题，对话不进入上下文。
+- [`context-mode`](https://pi.dev/packages/context-mode): 节约上下文
 
+### 有用但不太好用的
+
+- [`pi-permission-layers`](https://pi.dev/packages/pi-permission-layers)：pi本身没有权限管理，默认允许一切操作。这个插件提供了分级式的权限管理功能，但是有点bug，会导致 MCP 和一些 skill 用不了。
