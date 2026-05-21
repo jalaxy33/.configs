@@ -101,7 +101,7 @@ pi uninstall <extension-name>
 - [`@plannotator/pi-extension`](https://www.npmjs.com/package/@plannotator/pi-extension)：提供计划模式。这个插件可以对计划文档进行划线批注。
 - [`@juicesharp/rpiv-ask-user-question`](https://www.npmjs.com/package/@juicesharp/rpiv-ask-user-question)：向用户询问具体细节
 - [`@juicesharp/rpiv-todo`](https://www.npmjs.com/package/@juicesharp/rpiv-todo)：todo 列表渲染
-- [`@rhedbull/pi-permissions`](https://www.npmjs.com/package/@rhedbull/pi-permissions)：为 pi 添加权限管理。
+- [`@rhedbull/pi-permissions`](https://www.npmjs.com/package/@rhedbull/pi-permissions)：提供类似于 claude code 的权限模式
 
 ### 能力拓展
 
